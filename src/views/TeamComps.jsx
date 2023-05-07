@@ -268,8 +268,8 @@ function TeamComps() {
             <div className="title-1">
               <div className="name">TFT Meta Team Comps Tier List</div>
               <SelectDropDown
-                dropDownItems={[{ text: "Set 7.5", isSelected: true }]}
-                placeholder="Set 7.5"
+                dropDownItems={[{ text: "set 8.5", isSelected: true }]}
+                placeholder="set 8.5"
                 className="dropdown"
               />
             </div>

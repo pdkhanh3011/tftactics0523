@@ -372,8 +372,8 @@ export default function TeamBuilder() {
           </div>
           <div className="team-builder-title-info-version">
             <SelectDropdown
-              dropDownItems={[{ text: "Set 7.5", isSelected: true }]}
-              placeholder={"Set 7.5"}
+              dropDownItems={[{ text: "set 8.5", isSelected: true }]}
+              placeholder={"set 8.5"}
             />
           </div>
         </div>

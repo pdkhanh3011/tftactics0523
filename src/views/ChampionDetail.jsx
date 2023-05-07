@@ -143,7 +143,7 @@ function ChampionDetail(props) {
                 {championDetail.champion_origin
                   .concat(championDetail.champion_class)
                   .map((i) =>
-                    synergysData.find((s) => s.synergy_name.toLowerCase() === i)
+                    synergysData.find((s) => s.synergy_name === i)
                   )
                   .map((t) => {
                     return (
@@ -193,7 +193,7 @@ function ChampionDetail(props) {
               {championDetail.champion_class
                 .concat(championDetail.champion_origin)
                 .map((t) =>
-                  synergysData.find((s) => s.synergy_name.toLowerCase() === t)
+                  synergysData.find((s) => s.synergy_name === t)
                 )
                 .map((t) => {
                   return (
@@ -206,10 +206,10 @@ function ChampionDetail(props) {
                           .filter(
                             (c) =>
                               (c.champion_origin.includes(
-                                t.synergy_name.toLowerCase()
+                                t.synergy_name
                               ) ||
                                 c.champion_class.includes(
-                                  t.synergy_name.toLowerCase()
+                                  t.synergy_name
                                 )) &&
                               c.champion_name !== championDetail.champion_name
                           )
