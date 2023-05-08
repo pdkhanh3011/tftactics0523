@@ -194,7 +194,6 @@ export default function TeamBuilder() {
   // hanle traits bonus
   const traits = useMemo(() => {
     let data = getTraitsBonus(allItem, uniqueTraits, synergysData, newMembers);
-
     return data.sort(
       (a, b) =>
         b.bonus_level - a.bonus_level ||
@@ -202,7 +201,6 @@ export default function TeamBuilder() {
         a.name.localeCompare(b.name)
     );
   }, [allItem, uniqueTraits, synergysData, newMembers]);
-
   // prepare data for each slot in board
   function getHexagonData(position) {
     let result = members.find((member) => Number(member.position) === position);
@@ -234,6 +232,7 @@ export default function TeamBuilder() {
           position={i + 1}
           className="team-builder-drag-item"
           hanle_on_drop={ondrop}
+          traits_bonus={traits}
         />
       );
     }

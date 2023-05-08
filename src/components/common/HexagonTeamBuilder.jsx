@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useState } from "react";
 import { HEXAGON_BUILDER_BORDER_COLORS } from "config/color";
+import { BONUS_LEVEL_COLOR } from "config/color";
 import { clearSelected } from "utils/helper";
 
 export default function Hexagon({
@@ -13,9 +14,25 @@ export default function Hexagon({
   hanle_change_level,
   hanle_on_drop,
   position,
+  traits_bonus
 }) {
-  const { championsData, itemsData } = useContext(DataContext);
+  const { championsData, itemsData, synergysData } = useContext(DataContext);
   const [levelVisible, setLevelsVisible] = useState(false);
+
+  let championDetail = championsData.find((c) => c.champion_name === data.name);
+
+  let championTraits = [];
+
+  if (championDetail) {
+    championTraits = synergysData.filter(s => championDetail?.champion_class.includes(s.synergy_name) || championDetail?.champion_origin.includes(s.synergy_name));
+    championTraits = championTraits.map(championTrait => {
+      return {
+        ...championTrait,
+        traits_bonus: traits_bonus.find(traitBonus => traitBonus.name === championTrait.synergy_name).bonus_level
+      }
+    })
+    console.log(championTraits);
+  }
 
   function getItemImage(item_name) {
     return itemsData.find((i) => i.item_name === item_name)?.item_image;
@@ -34,11 +51,14 @@ export default function Hexagon({
     clearSelected();
     if (data.cost) e.dataTransfer.setData("drag_from_position", position);
   }
+  function getBonusColor(bonus_level) {
+    return `bonus-level-${bonus_level}`;
+  }
   return (
     <HexagonWrapper
       draggable={data.cost && true}
       backgroud_image={
-        championsData.find((c) => c.champion_name === data.name)
+        championDetail
           ?.champion_img_link
       }
       border_color={HEXAGON_BUILDER_BORDER_COLORS[data?.cost]}
@@ -64,6 +84,21 @@ export default function Hexagon({
             );
           })}
       </div>
+      {championDetail?.champion_name && (
+        <span className="character-name">
+        {championDetail.champion_name}
+      </span>
+      )}
+      {championTraits.length > 0 && (
+        <div className="character-traits">{
+        championTraits.map(t => (
+          <span className={getBonusColor(t.traits_bonus
+            )} key={t.synergy_name}>
+            <img src={t.synergy_image} alt="" />
+          </span>
+        ))}
+        </div>
+      )}
       {data?.max_level !== undefined && (
         <div
           onClick={() => hanle_change_level(data.position, data.max_level)}
@@ -73,17 +108,17 @@ export default function Hexagon({
             <Fragment>
               <FontAwesomeIcon
                 className={addActive(data.max_level)}
-                size="sm"
+                size="xs"
                 icon={solid("star")}
               />
               <FontAwesomeIcon
                 className={addActive(data.max_level)}
-                size="sm"
+                size="xs"
                 icon={solid("star")}
               />
               <FontAwesomeIcon
                 className={addActive(data.max_level)}
-                size="sm"
+                size="xs"
                 icon={solid("star")}
               />
             </Fragment>
@@ -156,7 +191,9 @@ const HexagonWrapper = styled.div`
     }
   }
   .character-items,
-  .character-levels {
+  .character-levels,
+  .character-name,
+  .character-traits {
     position: absolute;
     display: flex;
     z-index: 999;
@@ -169,12 +206,137 @@ const HexagonWrapper = styled.div`
     .character-item {
       width: 22px;
       height: 22px;
+      border: 1px solid #17313a;
     }
   }
   .character-levels {
-    top: -15px;
+    top: 5px;
     .active {
       color: orange;
+    }
+    svg {
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+  }
+  .character-name {
+    top: 25px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    color: rgb(255, 255, 255);
+    white-space: nowrap;
+    text-shadow: rgb(0, 0, 0) -1px 0px, rgb(0, 0, 0) 0px 1px, rgb(0, 0, 0) 1px 0px, rgb(0, 0, 0) 0px -1px;
+    text-align: center;
+  }
+  .character-traits {
+    top: -17px;
+    span {
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      position: relative;
+      width: 20px;
+      background-color: #123040;
+      display: inherit;
+      height: 13px;
+      margin: 0 1px;
+      align-items: center;
+      justify-content: center;
+      img {
+        height: 125%;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        left: 0;
+        border-left: 10.5px solid transparent;
+        border-right: 10.5px solid transparent;
+        z-index: 1;
+        bottom: 100%;
+        border-bottom: 5px solid #123040;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        left: 0;
+        border-left: 10.5px solid transparent;
+        border-right: 10.5px solid transparent;
+        z-index: 1;
+        top: 100%;
+        border-top: 5px solid #123040;
+      }
+    }
+    span.bonus-level-1 {
+      background-color: #a0715e;
+      &::before {
+        border-bottom: 5px solid #a0715e;
+      }
+      &::after {
+        border-top: 5px solid #a0715e;
+      }
+    }
+    span.bonus-level-2 {
+      background-color: #7c8f92;
+      &::before {
+        border-bottom: 5px solid #7c8f92;
+      }
+      &::after {
+        border-top: 5px solid #7c8f92;
+      }
+    }
+    span.bonus-level-3 {
+      background-color: #bd9a38;
+      &::before {
+        border-bottom: 5px solid #bd9a38;
+      }
+      &::after {
+        border-top: 5px solid #bd9a38;
+      }
+    }
+    span.bonus-level-4 {
+      background-color: #ad1457;
+      &::before {
+        border-bottom: 5px solid #ad1457;
+      }
+      &::after {
+        border-top: 5px solid #ad1457;
+      }
+    }
+    span.bonus-level-5 {
+      background-color: #ad1457;
+      &::before {
+        border-bottom: 5px solid #ad1457;
+      }
+      &::after {
+        border-top: 5px solid #ad1457;
+      }
+    }
+    span.bonus-level-6 {
+      background-color: #ad1457;
+      &::before {
+        border-bottom: 5px solid #ad1457;
+      }
+      &::after {
+        border-top: 5px solid #ad1457;
+      }
+    }
+    span.bonus-level-7 {
+      background-color: #ad1457;
+      &::before {
+        border-bottom: 5px solid #ad1457;
+      }
+      &::after {
+        border-top: 5px solid #ad1457;
+      }
+    }
+    span.bonus-level-8 {
+      background-color: #ad1457;
+      &::before {
+        border-bottom: 5px solid #ad1457;
+      }
+      &::after {
+        border-top: 5px solid #ad1457;
+      }
     }
   }
 `;

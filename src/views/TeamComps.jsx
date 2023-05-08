@@ -103,7 +103,7 @@ function TeamComps() {
             t.traits.forEach((s) => {
               if (s.bonus_level > 0) {
                 filter.classes.forEach((i) => {
-                  if (i.toLowerCase() === s.name) result = true;
+                  if (i === s.name) result = true;
                 });
               }
             });
@@ -116,7 +116,7 @@ function TeamComps() {
             t.traits.forEach((s) => {
               if (s.bonus_level > 0) {
                 filter.origins.forEach((i) => {
-                  if (i.toLowerCase() === s.name) result = true;
+                  if (i === s.name) result = true;
                 });
               }
             });
