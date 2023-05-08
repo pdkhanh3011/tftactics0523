@@ -115,7 +115,8 @@ export function getTraitsBonus(
     if (
       item === "Corrupted" ||
       item === "Forecaster" ||
-      (item === "Parallel" && count === 2)
+      (item === "Parallel" && count === 2) || 
+      (item === "Riftwalker" && count === 3) 
     )
       bonus_level = 3;
     return { name: item, count, lvls, bonus_level };

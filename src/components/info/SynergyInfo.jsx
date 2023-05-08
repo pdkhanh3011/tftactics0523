@@ -150,7 +150,7 @@ const SynergyInfoDefault = styled.div`
       }
     }
     .popup {
-      z-index: 1000;
+      z-index: 10000;
       display: none;
       position: absolute;
       left: calc(100% + 145px);

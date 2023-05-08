@@ -66,6 +66,8 @@ function TeamComps() {
     origins: [],
   });
 
+  console.log(includedTraits);
+
   useEffect(() => {
     setFilteredData([
       ...includedTraits
@@ -86,7 +88,7 @@ function TeamComps() {
             return true;
           if (
             f.traits.find((t) =>
-              t.name.includes(filter.search_text.trim().toLowerCase())
+              t.name.toLowerCase().includes(filter.search_text.trim().toLowerCase())
             )
           )
             return true;

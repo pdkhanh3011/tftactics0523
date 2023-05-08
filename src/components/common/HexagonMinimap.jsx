@@ -24,7 +24,7 @@ function HexagonMinimap(props) {
     synergys = synergysData.filter((item) => {
       return championDetail.champion_origin
         .concat(championDetail.champion_class)
-        .includes(item.synergy_name.toLowerCase());
+        .includes(item.synergy_name);
     });
     itemsRecommend = itemsData.filter((item) =>
       championDetail.champion_items.includes(item.item_name)
