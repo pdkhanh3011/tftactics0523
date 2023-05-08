@@ -1,20 +1,20 @@
 import styled from "styled-components";
 import TierStatus from "components/common/TierStatus";
 import CharacterInfo from "components/info/CharacterInfo";
-import { capitalize } from "utils/filter";
+import { capitalize } from "utils/helper";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Status from "components/common/Status";
-import React, { useState, useContext, lazy, Suspense, memo } from "react";
-import { DataContext } from "contexts/DataContext";
+import React, { useState, lazy, Suspense, memo } from "react";
 import { BONUS_LEVEL_COLOR } from "config/color";
+import { useSelector } from "react-redux";
 
 const SynergyInfo = lazy(() => import("components/info/SynergyInfo"));
 const ItemInfo = lazy(() => import("components/info/ItemInfo"));
 const MiniMap = lazy(() => import("components/common/MiniMap"));
 
 const TeamComp = memo((props) => {
-  const { itemsData } = useContext(DataContext);
+  const { itemsData } = useSelector((state) => state.api);
   const [expand, setExpand] = useState(false);
 
   const allItem = props.team_detail.members.reduce((all, cur) => {

@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import { useContext, useEffect, useState, lazy, Suspense } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { useOutletContext } from "react-router-dom";
-import { DataContext } from "contexts/DataContext";
+import { useSelector } from "react-redux";
 
 const CharacterInfo = lazy(() => import("components/info/CharacterInfo"));
 const SynergyInfo = lazy(() => import("components/info/SynergyInfo"));
 
 function Classes() {
-  const { championsData, synergysData } = useContext(DataContext);
+  const { championsData, synergysData } = useSelector((state) => state.api);
   const [s_data, setS_data] = useState(synergysData);
   const searchText = useOutletContext();
   useEffect(() => {

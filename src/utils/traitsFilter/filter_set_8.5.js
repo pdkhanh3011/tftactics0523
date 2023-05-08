@@ -1,8 +1,4 @@
-export function capitalize(s) {
-  return s[0].toUpperCase() + s.slice(1);
-}
-
-export function getTraitsBonus(
+export default function getTraitsBonus(
   allItem,
   uniqueTraits,
   synergysData,

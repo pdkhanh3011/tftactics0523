@@ -15,8 +15,10 @@ function Header(props) {
           </div>
           <div className="version">
             <SelectDropdown
-              dropDownItems={[{ text: "Set 8.5", isSelected: true }]}
-              placeholder="Set 8.5"
+              dropDownItems={[
+                { text: "Set 7.5", value: "7.5", isSelected: false },
+                { text: "Set 8.5", value: "8.5", isSelected: true },
+              ]}
               className="version-dropdown"
             />
           </div>

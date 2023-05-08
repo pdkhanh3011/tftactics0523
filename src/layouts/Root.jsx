@@ -3,17 +3,23 @@ import TopNavigation from "layouts/TopNavigation";
 import Content from "layouts/Content";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
-import { useContext, useEffect, useState } from "react";
-import { DataContext } from "contexts/DataContext";
+import { useEffect, useState } from "react";
 import Footer from "layouts/Footer";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getData } from "store/api/apiSlice";
+import { useSelector } from "react-redux";
+
 
 function RootLayout() {
   const [isOpenNaviagtion, setIsOpenNaviagtion] = useState(false);
-  const { isLoading } = useContext(DataContext);
+  const { isLoading } = useSelector((state) => state.api);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
+    dispatch(getData());
     if (window.location.pathname === "/") navigate("/teamcomps");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <RootLayoutDefault id="root-layout">

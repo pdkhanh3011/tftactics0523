@@ -2,17 +2,17 @@ import MainLayout from "layouts/MainLayout";
 import styled from "styled-components";
 import SelectDropDown from "components/common/SelectDropdown";
 import SearchOrigin from "components/common/SearchOrigin";
-import { DataContext } from "contexts/DataContext";
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import { useState } from "react";
 import ItemInfo from "components/info/ItemInfo";
 import { useEffect } from "react";
-import { capitalize } from "utils/filter";
+import { capitalize } from "utils/helper";
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function ItemBuilder() {
   const { state } = useLocation();
-  const { itemsData } = useContext(DataContext);
+  const { itemsData } = useSelector((state) => state.api);
   const [searctText, setSearctText] = useState("");
   const [baseItems, setBaseItems] = useState([
     ...itemsData.filter(
@@ -174,7 +174,10 @@ function ItemBuilder() {
             <div className="title-1">
               <div className="name">TFT Items Cheat Sheet</div>
               <SelectDropDown
-                dropDownItems={[{ text: "set 8.5", isSelected: true }]}
+                dropDownItems={[
+                { text: "Set 7.5", value: "7.5", isSelected: false },
+                { text: "Set 8.5", value: "8.5", isSelected: true },
+              ]}
                 placeholder="set 8.5"
                 className="dropdown"
               />

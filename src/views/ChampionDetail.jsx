@@ -2,22 +2,21 @@ import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import MainLayout from "layouts/MainLayout";
 import ItemInfo from "components/info/ItemInfo";
-import { DataContext } from "contexts/DataContext";
-import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
-import { capitalize } from "utils/filter";
+import { capitalize } from "utils/helper";
 import CharacterInfo from "components/info/CharacterInfo";
+import { useSelector } from "react-redux";
 
 function ChampionDetail(props) {
   const { state } = useLocation();
-  const { championsData, synergysData } = useContext(DataContext);
+  const { championsData, synergysData } = useSelector((state) => state.api);
   const championName = state?.champion_name;
 
   const championDetail = championsData.find(
     (c) => c.champion_name === championName
   );
-  return (
+  return championDetail ? (
     <ChampionDetailWrapper>
       <MainLayout
         sideContent={
@@ -232,7 +231,7 @@ function ChampionDetail(props) {
         }
       />
     </ChampionDetailWrapper>
-  );
+  ) : "";
 }
 
 export default ChampionDetail;

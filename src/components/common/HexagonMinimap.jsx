@@ -2,18 +2,18 @@ import styled from "styled-components";
 import SynergyInfo from "../info/SynergyInfo";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext, useState } from "react";
-import { DataContext } from "contexts/DataContext";
+import { useState } from "react";
 import LoadingCycle from "components/common/LoadingCycle";
 import ItemInfo from "components/info/ItemInfo";
 import { CHARACTER_BORDERS, BORDER_IMAGES } from "config/color";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function HexagonMinimap(props) {
   const navigate = useNavigate();
   const [hiddenPopup, setHiddenPopup] = useState(true);
   const [loadDone, setLoadDone] = useState(false);
-  const { championsData, synergysData, itemsData } = useContext(DataContext);
+  const { championsData, synergysData, itemsData } = useSelector((state) => state.api);
   let championDetail = {};
   let synergys = [];
   let itemsRecommend = [];

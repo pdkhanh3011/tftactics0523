@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {
-  useContext,
   useState,
   useEffect,
   Fragment,
@@ -17,9 +16,10 @@ import ItemInfo from "components/info/ItemInfo";
 import SearchCard from "components/common/SearchCard";
 import Switch from "components/common/Switch";
 import HexagonTeamBuilder from "components/common/HexagonTeamBuilder";
-import { DataContext } from "contexts/DataContext";
 import TeamBuilderServices from "services/teambuilder";
-import { capitalize, getTraitsBonus } from "utils/filter";
+import { capitalize } from "utils/helper";
+import { config, currentSet } from "configVersionTFT";
+import { useSelector } from "react-redux";
 
 const PartialTraitsItem = lazy(() =>
   import("components/common/PartialTraitsItem")
@@ -31,11 +31,15 @@ export async function loader({ params }) {
 }
 
 export default function TeamBuilder() {
+  const getTraitsBonus = config.allApi[currentSet].filter;
+
   // get team data from share link
   const teamData = useLoaderData();
 
-  // data from context
-  const { championsData, synergysData, itemsData } = useContext(DataContext);
+  // data from redux
+  const championsData = [...useSelector((state) => state.api.championsData)];
+  const synergysData = [...useSelector((state) => state.api.synergysData)];
+  const itemsData = [...useSelector((state) => state.api.itemsData)];
 
   // hanle show partial traits
   const [showPartialTraits, setShowPartialTraits] = useState(true);
@@ -56,9 +60,17 @@ export default function TeamBuilder() {
       let data = championsData.filter((c) => {
         if (c.champion_name.toLowerCase().includes(characterFilter.text))
           return true;
-        if (c.champion_origin.find((o) => o.toLowerCase().includes(characterFilter.text)))
+        if (
+          c.champion_origin.find((o) =>
+            o.toLowerCase().includes(characterFilter.text)
+          )
+        )
           return true;
-        if (c.champion_class.find((c) => c.toLowerCase().includes(characterFilter.text)))
+        if (
+          c.champion_class.find((c) =>
+            c.toLowerCase().includes(characterFilter.text)
+          )
+        )
           return true;
         if (c.champion_cost === characterFilter.text) return true;
         return false;
@@ -86,7 +98,7 @@ export default function TeamBuilder() {
         );
       }
     });
-  }, [championsData, characterFilter]);
+  }, [characterFilter]);
 
   // hanle search items
   const [itemfilter, setItemfilter] = useState("");
@@ -109,7 +121,7 @@ export default function TeamBuilder() {
       );
       return data;
     });
-  }, [itemfilter, itemsData]);
+  }, [itemfilter]);
 
   // hanle error message
   const [errorMessage, setErrorMessage] = useState("");
@@ -152,7 +164,7 @@ export default function TeamBuilder() {
         ...championDetail,
       };
     });
-  }, [championsData, members]);
+  }, [members]);
 
   /// all items
   const allItem = useMemo(() => {
@@ -168,7 +180,7 @@ export default function TeamBuilder() {
       if (c.is_trait && c.is_combined === "false") return false;
       return true;
     });
-  }, [allItem, itemsData]);
+  }, [allItem]);
 
   /// all item recipes
   const allRecipe = useMemo(() => {
@@ -176,7 +188,7 @@ export default function TeamBuilder() {
       let a = itemsData.find((i) => i.item_name === curr);
       return all.concat(a.recipe_1).concat(a.recipe_2);
     }, []);
-  }, [allItemCraftable, itemsData]);
+  }, [allItemCraftable]);
 
   // unique traits
   const uniqueTraits = useMemo(() => {
@@ -371,7 +383,10 @@ export default function TeamBuilder() {
           </div>
           <div className="team-builder-title-info-version">
             <SelectDropdown
-              dropDownItems={[{ text: "set 8.5", isSelected: true }]}
+              dropDownItems={[
+                { text: "Set 7.5", value: "7.5", isSelected: false },
+                { text: "Set 8.5", value: "8.5", isSelected: true },
+              ]}
               placeholder={"set 8.5"}
             />
           </div>

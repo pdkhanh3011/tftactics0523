@@ -12,11 +12,12 @@ import "./firebase/main";
 import { loader as ChampionsManagerLoader } from "views/Manager/ChampionsManager";
 import { AuthProvider } from "contexts/AuthContext";
 import PrivateRoute from "components/auth/PrivateRoute";
-import { DataProvider } from "contexts/DataContext";
 import { loader as teamLoader } from "views/TeamBuilder";
 import { MetaReportProvider } from "contexts/MetaReportContext";
 import ChampionDetail from "views/ChampionDetail";
 import ScrollToTop from "components/common/ScrollToTop";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 const DatabaseLayout = lazy(() => import("./views/Database/DatabaseLayout"));
 const TeamComps = lazy(() => import("views/TeamComps"));
@@ -187,11 +188,11 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <AuthProvider>
-    <DataProvider>
-      <RouterProvider router={router} />
-    </DataProvider>
-  </AuthProvider>
+  <Provider store={store}>
+    <AuthProvider>
+        <RouterProvider router={router} />
+    </AuthProvider>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

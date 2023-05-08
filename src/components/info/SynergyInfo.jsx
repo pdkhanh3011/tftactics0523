@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { useContext, useState, memo } from "react";
-import { DataContext } from "contexts/DataContext";
+import { useState, memo } from "react";
 import LoadingCycle from "components/common/LoadingCycle";
 import { CHARACTER_BORDERS, BORDER_IMAGES } from "config/color";
+import { useSelector } from "react-redux";
 
 const SynergyInfo = memo((props) => {
-  const { championsData, synergysData } = useContext(DataContext);
+  const { championsData, synergysData } = useSelector((state) => state.api);
   const [loadDone, setLoadDone] = useState(false);
   const [hiddenPopup, setHiddenPopup] = useState(true);
 

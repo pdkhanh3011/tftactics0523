@@ -1,19 +1,20 @@
 import MainLayout from "layouts/MainLayout";
 import styled from "styled-components";
 import SelectDropDown from "components/common/SelectDropdown";
-import { DataContext } from "contexts/DataContext";
 import { MetaReportContext } from "contexts/MetaReportContext";
 import { useContext, useState } from "react";
 import Button from "components/common/Button";
 import Status from "components/common/Status";
 import MetaInfo from "components/info/MetaInfo";
 import { NavLink } from "react-router-dom";
-import { getTraitsBonus } from "utils/filter";
+import { config, currentSet } from "configVersionTFT";
+import { useSelector } from "react-redux";
 
 function MetaReport() {
-  const { championsData, synergysData } = useContext(DataContext);
+  const getTraitsBonus = config.allApi[currentSet].filter;
+  const { championsData, synergysData } = useSelector((state) => state.api);
   const { metaComps } = useContext(MetaReportContext);
-  const [includedTraits, setIncludedTraits] = useState(() => {
+  const [includedTraits] = useState(() => {
     let result = metaComps.map((team_detail) => {
       let all = team_detail.members.map((member) => {
         let championDetail = championsData.find(
@@ -49,7 +50,7 @@ function MetaReport() {
     return result;
   });
 
-  const [filteredData, setFilteredData] = useState(includedTraits);
+  const [filteredData] = useState(includedTraits);
 
   return (
     <MetaReportWrapper id="item-builder">
@@ -77,7 +78,10 @@ function MetaReport() {
             <div className="title-1">
               <div className="name">Meta Team Comps</div>
               <SelectDropDown
-                dropDownItems={[{ text: "set 8.5", isSelected: true }]}
+                dropDownItems={[
+                  { text: "Set 7.5", value: "7.5", isSelected: false },
+                  { text: "Set 8.5", value: "8.5", isSelected: true },
+                ]}
                 placeholder="set 8.5"
                 className="dropdown"
               />

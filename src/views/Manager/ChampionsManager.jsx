@@ -17,7 +17,6 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useState } from "react";
 import synergysServices from "services/synergys";
 import { useLoaderData } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 export async function loader() {
   let synergysData = await synergysServices.getAllSynergys();
@@ -85,7 +84,6 @@ const OPTIONS = [
 ];
 
 function ChampionsManager() {
-  const navigate = useNavigate();
   const { synergysData } = useLoaderData();
   const [champion_class, setChampion_class] = useState([]);
   const [champion_origin, setChampion_origin] = useState([]);

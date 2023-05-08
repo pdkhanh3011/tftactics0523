@@ -2,9 +2,9 @@ import { useEffect, lazy, Suspense, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import styled from "styled-components";
-import { useContext, useState } from "react";
-import { DataContext } from "contexts/DataContext";
+import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const CharacterInfo = lazy(() => import("components/info/CharacterInfo"));
 
@@ -13,7 +13,7 @@ function ChampionsStats() {
   const [level, setLevel] = useState(1);
   const [decreased, setDecreased] = useState(true);
   const [type, setType] = useState("offense");
-  const { championsData } = useContext(DataContext);
+  const { championsData } = useSelector((state) => state.api);
   const [sorted, setSorted] = useState(championsData);
   const [filterOptions, setFilterOptions] = useState({
     name: "DPS",

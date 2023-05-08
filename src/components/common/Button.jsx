@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 function Button(props) {
   return (
-    <ButtonDefault id="defaul-button" className={props.className}>
+    <ButtonDefault id="defaul-button" className={props.className} onClick={() => props.handleOnClick(props.value)}>
       {props.children}
       <span>{props.btnText}</span>
     </ButtonDefault>

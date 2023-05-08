@@ -10,13 +10,13 @@ import {
 } from "antd";
 import { db } from "../../firebase/main";
 import { collection, addDoc } from "firebase/firestore";
-import { useState, useContext } from "react";
-import { DataContext } from "contexts/DataContext";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const { Title } = Typography;
 
 function SynergysManager() {
-  const { championsData, itemsData } = useContext(DataContext);
+  const { championsData, itemsData } = useSelector((state) => state.api);
   const [form] = Form.useForm();
   const [members, setMembers] = useState([]);
   const [items, setItems] = useState([]);

@@ -6,12 +6,22 @@ import styled from "styled-components";
 
 function Select(props) {
   const [showDropdown, setshowDropdown] = useState(false);
+  const [data, setData] = useState(props.dropDownItems);
   function hanleClick() {
     setshowDropdown(!showDropdown);
   }
   function dropdownItemClass(isSelected) {
     if (isSelected) return "dropdown-item selected";
     return "dropdown-item";
+  }
+  function onClickItem(data) {
+    setData(pre => {
+      pre.forEach(item => {
+        item.isSelected = false;
+      });
+      pre.find(item => item.value === data).isSelected = true;
+      return pre;
+    })
   }
   return (
     <SelectDefault
@@ -20,18 +30,20 @@ function Select(props) {
       onClick={hanleClick}
     >
       <div className="value">
-        <span>{props.placeholder}</span>
+        <span>{data?.find(item => item.isSelected === true)?.text}</span>
       </div>
       <div className="button-dropdown">
         <FontAwesomeIcon icon={solid("caret-down")} />
       </div>
       {showDropdown ? (
         <div className="dropdown">
-          {props.dropDownItems.map((item, index) => {
+          {data.map((item, index) => {
             return (
               <Button
+                handleOnClick={onClickItem}
                 className={dropdownItemClass(item?.isSelected)}
                 btnText={item.text}
+                value={item.value}
                 key={item + index}
               />
             );

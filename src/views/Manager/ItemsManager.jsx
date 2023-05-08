@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import React, { useEffect, useContext } from "react";
-import { DataContext } from "contexts/DataContext";
+import React from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import { Form, Input, Button, Upload, Typography, Select } from "antd";
 import { db, storage } from "../../firebase/main";

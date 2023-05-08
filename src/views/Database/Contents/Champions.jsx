@@ -2,21 +2,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import styled from "styled-components";
 import {
-  useContext,
   useState,
   useEffect,
   lazy,
   Suspense,
   useCallback,
 } from "react";
-import { DataContext } from "contexts/DataContext";
 import { useOutletContext } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const CharacterInfo = lazy(() => import("components/info/CharacterInfo"));
 const SynergyInfo = lazy(() => import("components/info/SynergyInfo"));
 
 function Champions() {
-  const { championsData } = useContext(DataContext);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const championsData = [...useSelector((state) => state.api.championsData)];
   const [c_data, setC_data] = useState(
     championsData.sort((a, b) => a.champion_name.localeCompare(b.champion_name))
   );

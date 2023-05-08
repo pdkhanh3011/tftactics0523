@@ -2,16 +2,15 @@ import styled from "styled-components";
 import MainLayout from "layouts/MainLayout";
 import SelectDropDown from "components/common/SelectDropdown";
 import SearchOrigin from "components/common/SearchOrigin";
-import { DataContext } from "contexts/DataContext";
-import { useContext } from "react";
 import CharacterInfo from "components/info/CharacterInfo";
 import SelectSide from "components/common/SelectSide";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useEffect, useState, useCallback } from "react";
+import { useSelector } from "react-redux";
 
 export default function Champions() {
-  const { championsData, synergysData } = useContext(DataContext);
+  const { championsData, synergysData } = useSelector((state) => state.api);
   const [filter, setFilter] = useState({
     search_text: "",
     costs: [],
@@ -226,7 +225,10 @@ export default function Champions() {
             <div className="title-1">
               <div className="name">TFT Champions List</div>
               <SelectDropDown
-                dropDownItems={[{ text: "Set 8.5", isSelected: true }]}
+                dropDownItems={[
+                { text: "Set 7.5", value: "7.5", isSelected: false },
+                { text: "Set 8.5", value: "8.5", isSelected: true },
+              ]}
                 placeholder="Set 8.5"
                 className="dropdown"
               />

@@ -2,17 +2,18 @@ import MainLayout from "layouts/MainLayout";
 import styled from "styled-components";
 import SelectDropDown from "components/common/SelectDropdown";
 import SearchOrigin from "components/common/SearchOrigin";
-import { DataContext } from "contexts/DataContext";
-import { useContext, useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Button from "components/common/Button";
 import Status from "components/common/Status";
 import CompInfo from "components/info/CompInfo";
 import SelectSide from "components/common/SelectSide";
-import { getTraitsBonus } from "utils/filter";
+import { config, currentSet } from "configVersionTFT";
+import { useSelector } from "react-redux";
 
 function TeamComps() {
-  const { championsData, synergysData, teamcompsData } =
-    useContext(DataContext);
+  const getTraitsBonus = config.allApi[currentSet].filter;
+
+  const { championsData, synergysData, teamcompsData } = useSelector((state) => state.api);
 
   const [includedTraits] = useState(() => {
     let result = teamcompsData.map((team_detail) => {
@@ -66,8 +67,6 @@ function TeamComps() {
     origins: [],
   });
 
-  console.log(includedTraits);
-
   useEffect(() => {
     setFilteredData([
       ...includedTraits
@@ -88,7 +87,9 @@ function TeamComps() {
             return true;
           if (
             f.traits.find((t) =>
-              t.name.toLowerCase().includes(filter.search_text.trim().toLowerCase())
+              t.name
+                .toLowerCase()
+                .includes(filter.search_text.trim().toLowerCase())
             )
           )
             return true;
@@ -270,7 +271,10 @@ function TeamComps() {
             <div className="title-1">
               <div className="name">TFT Meta Team Comps Tier List</div>
               <SelectDropDown
-                dropDownItems={[{ text: "set 8.5", isSelected: true }]}
+                dropDownItems={[
+                  { text: "Set 7.5", value: "7.5", isSelected: false },
+                  { text: "Set 8.5", value: "8.5", isSelected: true },
+                ]}
                 placeholder="set 8.5"
                 className="dropdown"
               />

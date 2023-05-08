@@ -3,7 +3,7 @@ import SynergyInfo from "components/info/SynergyInfo";
 import { BONUS_LEVEL_COLOR } from "config/color";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
-import { capitalize } from "utils/filter";
+import { capitalize } from "utils/helper";
 import { Fragment } from "react";
 
 export default function PartialTraitsItem({

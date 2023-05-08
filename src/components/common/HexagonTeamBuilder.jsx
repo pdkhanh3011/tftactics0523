@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import { Fragment, useContext } from "react";
-import { DataContext } from "contexts/DataContext";
+import { Fragment } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useState } from "react";
 import { HEXAGON_BUILDER_BORDER_COLORS } from "config/color";
-import { BONUS_LEVEL_COLOR } from "config/color";
 import { clearSelected } from "utils/helper";
+import { useSelector } from "react-redux";
 
 export default function Hexagon({
   className,
@@ -16,7 +15,7 @@ export default function Hexagon({
   position,
   traits_bonus
 }) {
-  const { championsData, itemsData, synergysData } = useContext(DataContext);
+  const { championsData, itemsData, synergysData } = useSelector((state) => state.api);
   const [levelVisible, setLevelsVisible] = useState(false);
 
   let championDetail = championsData.find((c) => c.champion_name === data.name);
@@ -31,7 +30,6 @@ export default function Hexagon({
         traits_bonus: traits_bonus.find(traitBonus => traitBonus.name === championTrait.synergy_name).bonus_level
       }
     })
-    console.log(championTraits);
   }
 
   function getItemImage(item_name) {

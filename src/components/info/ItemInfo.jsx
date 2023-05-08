@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import { DataContext } from "contexts/DataContext";
-import { useContext, useState, memo } from "react";
+import { useState, memo } from "react";
 import LoadingCycle from "components/common/LoadingCycle";
 import { clearSelected } from "utils/helper";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const ItemInfo = memo((props) => {
   const navigate = useNavigate();
-  const { itemsData } = useContext(DataContext);
+  const { itemsData } = useSelector((state) => state.api);
   const [hiddenPopup, setHiddenPopup] = useState(true);
 
   const [loadDone, setLoadDone] = useState(false);
