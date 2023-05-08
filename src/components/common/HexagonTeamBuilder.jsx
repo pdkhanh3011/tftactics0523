@@ -241,6 +241,7 @@ const HexagonWrapper = styled.div`
       align-items: center;
       justify-content: center;
       img {
+        z-index: 10;
         height: 125%;
       }
       &::before {
