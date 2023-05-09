@@ -7,11 +7,11 @@ import Button from "components/common/Button";
 import Status from "components/common/Status";
 import MetaInfo from "components/info/MetaInfo";
 import { NavLink } from "react-router-dom";
-import { config, currentSet } from "configVersionTFT";
+import tftVersionConfig from "tftVersionConfig";
 import { useSelector } from "react-redux";
 
 function MetaReport() {
-  const getTraitsBonus = config.allApi[currentSet].filter;
+  const getTraitsBonus = tftVersionConfig.allApi[useSelector((state) => state.version.versionName)].filter;
   const { championsData, synergysData } = useSelector((state) => state.api);
   const { metaComps } = useContext(MetaReportContext);
   const [includedTraits] = useState(() => {

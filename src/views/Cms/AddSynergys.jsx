@@ -2,15 +2,20 @@ import styled from "styled-components";
 import React from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import { Form, Input, Button, Upload, Typography, Select } from "antd";
-import { db, storage } from "../../firebase/main";
 import { collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const { TextArea } = Input;
 const { Title } = Typography;
 
-function SynergysManager() {
+function AddSynergys() {
+  const selectedVersion = useSelector((state) => state.version.versionName);
+  const allFirebaseApps = useSelector((state) => state.firebase.allFirebaseApps);
+
+  const db = allFirebaseApps[selectedVersion]?.db;
+  const storage = allFirebaseApps[selectedVersion]?.storage;
   const [form] = Form.useForm();
   const [img, setImg] = useState("");
   const onFinish = async (values) => {
@@ -41,7 +46,7 @@ function SynergysManager() {
     setImg(file);
   }
   return (
-    <OriginsManagerDefault>
+    <AddOrigins>
       <Wrapper className="wrapper">
         <Title align="center">Create Synergy</Title>
         <Form
@@ -127,13 +132,13 @@ function SynergysManager() {
           </Form.Item>
         </Form>
       </Wrapper>
-    </OriginsManagerDefault>
+    </AddOrigins>
   );
 }
 
-export default SynergysManager;
+export default AddSynergys;
 
-const OriginsManagerDefault = styled.div``;
+const AddOrigins = styled.div``;
 
 const Wrapper = styled.div`
   padding-top: 50px;

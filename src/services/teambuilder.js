@@ -1,23 +1,22 @@
 import { collection, addDoc, getDoc, doc } from "firebase/firestore";
-import { db } from "../firebase/main";
 
-async function saveTeam(team) {
+async function saveTeam(team, db) {
   let id;
   try {
     const docRef = await addDoc(collection(db, "teambuilders"), {
-      members: team
+      members: team,
     });
-    id = docRef.id
+    id = docRef.id;
   } catch (error) {
     throw new Error(error);
   }
   return id;
 }
 
-async function getTeamById(id) {
+async function getTeamById(id, db) {
   let data = [];
   try {
-    const docSnap  = await getDoc(doc(db, "teambuilders", id));
+    const docSnap = await getDoc(doc(db, "teambuilders", id));
     data = docSnap.data().members;
   } catch (error) {
     throw new Error(error);
@@ -25,10 +24,9 @@ async function getTeamById(id) {
   return data;
 }
 
-
 const services = {
   saveTeam,
-  getTeamById
+  getTeamById,
 };
 
 export default services;

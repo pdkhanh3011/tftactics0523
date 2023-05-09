@@ -18,8 +18,13 @@ import Switch from "components/common/Switch";
 import HexagonTeamBuilder from "components/common/HexagonTeamBuilder";
 import TeamBuilderServices from "services/teambuilder";
 import { capitalize } from "utils/helper";
-import { config, currentSet } from "configVersionTFT";
+import tftVersionConfig from "tftVersionConfig";
 import { useSelector } from "react-redux";
+import store from "store/store";
+const state = store.getState();
+const selectedVersion = state.version.versionName;
+const allFirebaseApps = state.firebase.allFirebaseApps;
+const currentDb = allFirebaseApps[selectedVersion].db;
 
 const PartialTraitsItem = lazy(() =>
   import("components/common/PartialTraitsItem")
@@ -27,12 +32,11 @@ const PartialTraitsItem = lazy(() =>
 const CharacterInfo = lazy(() => import("components/info/CharacterInfo"));
 
 export async function loader({ params }) {
-  return TeamBuilderServices.getTeamById(params.teamId);
+  return TeamBuilderServices.getTeamById(params.teamId, currentDb);
 }
 
 export default function TeamBuilder() {
-  const getTraitsBonus = config.allApi[currentSet].filter;
-
+  const getTraitsBonus = tftVersionConfig.allApi[useSelector((state) => state.version.versionName)].filter;
   // get team data from share link
   const teamData = useLoaderData();
 
@@ -140,7 +144,7 @@ export default function TeamBuilder() {
   const [shared, setShared] = useState(false);
   const hanleShare = useCallback(async () => {
     if (!shared && members.length > 0) {
-      let id = await TeamBuilderServices.saveTeam(members);
+      let id = await TeamBuilderServices.saveTeam(members, currentDb);
       navigator.clipboard.writeText(
         `${window.location.origin}/teambuilder/${id}`
       );

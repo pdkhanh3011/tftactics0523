@@ -1,16 +1,21 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import championsService from "services/champions";
+import itemsService from "services/items";
 import synergysService from "services/synergys";
-import itemServices from "services/items";
 import teamcompsService from "services/teamcomps";
 
 export const getData = createAsyncThunk(
   "api/getData",
-  async (arg, { rejectWithValue }) => {
-    let champions = championsService.getAllChampions();
-    let synergys = synergysService.getAllSynergys();
-    let items = itemServices.getAllItems();
-    let teamcomps = teamcompsService.getAllTeamComps();
+  async (_, { rejectWithValue, getState }) => {
+    const state = getState();
+    const selectedVersion = state.version.versionName;
+    const allFirebaseApps = state.firebase.allFirebaseApps;
+    const currentDb = allFirebaseApps[selectedVersion].db;
+
+    const champions = championsService.getAllChampions(currentDb);
+    const synergys = synergysService.getAllSynergys(currentDb);
+    const items = itemsService.getAllItems(currentDb);
+    const teamcomps = teamcompsService.getAllTeamComps(currentDb);
     try {
       const data = await Promise.all([champions, synergys, items, teamcomps]);
       return data;
@@ -51,5 +56,7 @@ const apiSlice = createSlice({
     },
   },
 });
+
+export const { initAllFirebaseApps } = apiSlice.actions;
 
 export default apiSlice;

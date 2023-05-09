@@ -33,7 +33,16 @@ export default function SignUp() {
         <button onClick={hanleSignIn}>signin</button>
       </div>
         <NavLink to="../manager/origins" className="header-item">
-          manager champions
+          Add origins
+        </NavLink>||
+        <NavLink to="../manager/champions" className="header-item">
+          Add champions
+        </NavLink>||
+        <NavLink to="../manager/teamcomps" className="header-item">
+          Add teamcomps
+        </NavLink>||
+        <NavLink to="../manager/items" className="header-item">
+          Add items
         </NavLink>
     </div>
   )

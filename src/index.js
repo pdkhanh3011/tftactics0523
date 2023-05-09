@@ -8,8 +8,6 @@ import Champions from "./views/Database/Contents/Champions";
 import ChampionsStats from "./views/Database/Contents/ChampionsStats";
 import Origins from "./views/Database/Contents/Origins";
 import Classes from "./views/Database/Contents/Classes";
-import "./firebase/main";
-import { loader as ChampionsManagerLoader } from "views/Manager/ChampionsManager";
 import { AuthProvider } from "contexts/AuthContext";
 import PrivateRoute from "components/auth/PrivateRoute";
 import { loader as teamLoader } from "views/TeamBuilder";
@@ -18,19 +16,20 @@ import ChampionDetail from "views/ChampionDetail";
 import ScrollToTop from "components/common/ScrollToTop";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import CmsLayout from "layouts/CmsLayout";
 
 const DatabaseLayout = lazy(() => import("./views/Database/DatabaseLayout"));
 const TeamComps = lazy(() => import("views/TeamComps"));
 const MetaReport = lazy(() => import("views/MetaReport"));
 const TeamBuilder = lazy(() => import("views/TeamBuilder"));
 const ItemBuilder = lazy(() => import("./views/ItemBuilder"));
+const AllChampions = lazy(() => import("views/Champions"));
 
-const ItemsManager = lazy(() => import("views/Manager/ItemsManager"));
-const SynergysManager = lazy(() => import("views/Manager/SynergysManager"));
+const AddItems = lazy(() => import("views/Cms/AddItems"));
+const AddSynergys = lazy(() => import("views/Cms/AddSynergys"));
 const SignUp = lazy(() => import("components/auth/SignUp"));
-const TeamCompsManager = lazy(() => import("views/Manager/TeamCompsManager"));
-const ChampionsView = lazy(() => import("views/Champions"));
-const ChampionsManager = lazy(() => import("views/Manager/ChampionsManager"));
+const AddTeamComps = lazy(() => import("views/Cms/AddTeamComps"));
+const AddChampions = lazy(() => import("views/Cms/AddChampions"));
 
 const router = createBrowserRouter([
   {
@@ -42,48 +41,50 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/manager/origins",
-    element: (
-      <PrivateRoute>
-        <Suspense>
-          <SynergysManager />
-        </Suspense>
-      </PrivateRoute>
-    ),
-    loader: ChampionsManagerLoader,
-  },
-  {
-    path: "/manager/teamcomps",
-    element: (
-      <PrivateRoute>
-        <Suspense>
-          <TeamCompsManager />
-        </Suspense>
-      </PrivateRoute>
-    ),
-    loader: ChampionsManagerLoader,
-  },
-  {
-    path: "/manager/items",
-    element: (
-      <PrivateRoute>
-        <Suspense>
-          <ItemsManager />
-        </Suspense>
-      </PrivateRoute>
-    ),
-    loader: ChampionsManagerLoader,
-  },
-  {
-    path: "/manager/champions",
-    element: (
-      <PrivateRoute>
-        <Suspense>
-          <ChampionsManager />
-        </Suspense>
-      </PrivateRoute>
-    ),
-    loader: ChampionsManagerLoader,
+    path: "/manager",
+    element: <CmsLayout />,
+    children: [
+      {
+        path: "/manager/origins",
+        element: (
+          <PrivateRoute>
+            <Suspense>
+              <AddSynergys />
+            </Suspense>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/manager/teamcomps",
+        element: (
+          <PrivateRoute>
+            <Suspense>
+              <AddTeamComps />
+            </Suspense>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/manager/items",
+        element: (
+          <PrivateRoute>
+            <Suspense>
+              <AddItems />
+            </Suspense>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/manager/champions",
+        element: (
+          <PrivateRoute>
+            <Suspense>
+              <AddChampions />
+            </Suspense>
+          </PrivateRoute>
+        ),
+      },
+    ],
   },
   {
     path: "/",
@@ -109,7 +110,11 @@ const router = createBrowserRouter([
       },
       {
         path: "teambuilder/:teamId",
-        element: <TeamBuilder />,
+        element: (
+          <Suspense>
+            <TeamBuilder />
+          </Suspense>
+        ),
         loader: teamLoader,
       },
       {
@@ -170,7 +175,7 @@ const router = createBrowserRouter([
         path: "champions",
         element: (
           <Suspense>
-            <ChampionsView />
+            <AllChampions />
           </Suspense>
         ),
       },
@@ -190,7 +195,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <AuthProvider>
-        <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </AuthProvider>
   </Provider>
 );

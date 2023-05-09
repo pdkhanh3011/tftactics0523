@@ -7,11 +7,11 @@ import Button from "components/common/Button";
 import Status from "components/common/Status";
 import CompInfo from "components/info/CompInfo";
 import SelectSide from "components/common/SelectSide";
-import { config, currentSet } from "configVersionTFT";
+import tftVersionConfig from "tftVersionConfig";
 import { useSelector } from "react-redux";
 
 function TeamComps() {
-  const getTraitsBonus = config.allApi[currentSet].filter;
+  const getTraitsBonus = tftVersionConfig.allApi[useSelector((state) => state.version.versionName)].filter;
 
   const { championsData, synergysData, teamcompsData } = useSelector((state) => state.api);
 

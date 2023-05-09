@@ -2,10 +2,10 @@ import styled from "styled-components";
 import React from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import { Form, Input, Button, Upload, Typography, Select } from "antd";
-import { db, storage } from "../../firebase/main";
 import { collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const { TextArea } = Input;
 const { Title } = Typography;
@@ -33,7 +33,11 @@ const OPTIONS_STATS = [
   "dodge",
 ];
 
-function SynergysManager() {
+function AddSynergys() {
+  const selectedVersion = useSelector((state) => state.version.versionName);
+  const allFirebaseApps = useSelector((state) => state.firebase.allFirebaseApps);
+  const db = allFirebaseApps[selectedVersion]?.db;
+  const storage = allFirebaseApps[selectedVersion]?.storage;
 
   const [stats, setStats] = useState([]);
   const [statsValue, setStatsValue] = useState({});
@@ -79,7 +83,7 @@ function SynergysManager() {
     });
   }
   return (
-    <ItemsManagerDefault>
+    <AddItems>
       <Wrapper className="wrapper">
         <Title align="center">Create Item</Title>
         <Form
@@ -248,13 +252,13 @@ function SynergysManager() {
           </Form.Item>
         </Form>
       </Wrapper>
-    </ItemsManagerDefault>
+    </AddItems>
   );
 }
 
-export default SynergysManager;
+export default AddSynergys;
 
-const ItemsManagerDefault = styled.div``;
+const AddItems = styled.div``;
 
 const Wrapper = styled.div`
   padding-top: 50px;

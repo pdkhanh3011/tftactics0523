@@ -1,7 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../firebase/main";
 
-async function getAllItems() {
+async function getAllItems(db) {
   const res = await getDocs(collection(db, "items"));
   return res.docs.map((doc) => doc.data());
 }

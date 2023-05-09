@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { auth } from "../firebase/main";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut
 } from "firebase/auth";
+import { useSelector } from "react-redux";
 
 const AuthContext = React.createContext();
 
@@ -14,6 +14,9 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
+  const selectedVersion = useSelector((state) => state.version.versionName);
+  const allFirebaseApps = useSelector((state) => state.firebase.allFirebaseApps);
+  const auth = allFirebaseApps[selectedVersion]?.auth;
   const [currentUser, setCurrentUser] = useState();
 
   function signup(email, password) {

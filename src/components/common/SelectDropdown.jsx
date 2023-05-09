@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import Button from "./Button";
-import { useState } from "react";
+import { useState, } from "react";
 import styled from "styled-components";
 
 function Select(props) {
@@ -22,6 +22,7 @@ function Select(props) {
       pre.find(item => item.value === data).isSelected = true;
       return pre;
     })
+    props.handleSelect(data);
   }
   return (
     <SelectDefault

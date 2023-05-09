@@ -7,9 +7,8 @@ import { useEffect, useState } from "react";
 import Footer from "layouts/Footer";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { getData } from "store/api/apiSlice";
+import { getData } from "store/slices/apiSlice";
 import { useSelector } from "react-redux";
-
 
 function RootLayout() {
   const [isOpenNaviagtion, setIsOpenNaviagtion] = useState(false);
@@ -19,7 +18,6 @@ function RootLayout() {
   useEffect(() => {
     dispatch(getData());
     if (window.location.pathname === "/") navigate("/teamcomps");
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <RootLayoutDefault id="root-layout">

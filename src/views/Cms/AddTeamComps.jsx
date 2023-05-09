@@ -8,14 +8,17 @@ import {
   Select,
   InputNumber,
 } from "antd";
-import { db } from "../../firebase/main";
 import { collection, addDoc } from "firebase/firestore";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
 const { Title } = Typography;
 
-function SynergysManager() {
+function AddSynergys() {
+  const selectedVersion = useSelector((state) => state.version.versionName);
+  const allFirebaseApps = useSelector((state) => state.firebase.allFirebaseApps);
+  const db = allFirebaseApps[selectedVersion]?.db;
+
   const { championsData, itemsData } = useSelector((state) => state.api);
   const [form] = Form.useForm();
   const [members, setMembers] = useState([]);
@@ -107,7 +110,7 @@ function SynergysManager() {
   return (
     championsData &&
     itemsData && (
-      <OriginsManagerDefault>
+      <AddOrigins>
         <Wrapper className="wrapper">
           <Title align="center">Create TeamComp</Title>
           <Form
@@ -247,14 +250,14 @@ function SynergysManager() {
             </Form.Item>
           </Form>
         </Wrapper>
-      </OriginsManagerDefault>
+      </AddOrigins>
     )
   );
 }
 
-export default SynergysManager;
+export default AddSynergys;
 
-const OriginsManagerDefault = styled.div``;
+const AddOrigins = styled.div``;
 
 const Wrapper = styled.div`
   padding-top: 50px;

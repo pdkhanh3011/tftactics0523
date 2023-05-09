@@ -4,8 +4,16 @@ import Button from "components/common/Button";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { useDispatch } from "react-redux";
+import { updateVersion } from "store/slices/versionSlice";
+import { getData } from "store/slices/apiSlice";
 
 function Header(props) {
+  const dispatch = useDispatch();
+  function selectVersion(value) {
+    dispatch(updateVersion(value));
+    dispatch(getData());
+  }
   return (
     <RootHeaderDefault id="root-header">
       <div className="wrapper">
@@ -16,9 +24,10 @@ function Header(props) {
           <div className="version">
             <SelectDropdown
               dropDownItems={[
-                { text: "Set 7.5", value: "7.5", isSelected: false },
-                { text: "Set 8.5", value: "8.5", isSelected: true },
+                { text: "Set 7.5", value: "set7", isSelected: false },
+                { text: "Set 8.5", value: "set85", isSelected: true },
               ]}
+              handleSelect={selectVersion}
               className="version-dropdown"
             />
           </div>

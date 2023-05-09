@@ -11,17 +11,10 @@ import {
   Row,
   Col,
 } from "antd";
-import { db, storage } from "../../firebase/main";
 import { collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useState } from "react";
-import synergysServices from "services/synergys";
-import { useLoaderData } from "react-router-dom";
-
-export async function loader() {
-  let synergysData = await synergysServices.getAllSynergys();
-  return { synergysData };
-}
+import { useSelector } from "react-redux";
 
 const { TextArea } = Input;
 const { Title } = Typography;
@@ -83,8 +76,13 @@ const OPTIONS = [
   "Recurve Bow",
 ];
 
-function ChampionsManager() {
-  const { synergysData } = useLoaderData();
+function AddChampions() {
+  const selectedVersion = useSelector((state) => state.version.versionName);
+  const allFirebaseApps = useSelector((state) => state.firebase.allFirebaseApps);
+  const db = allFirebaseApps[selectedVersion]?.db;
+  const storage = allFirebaseApps[selectedVersion]?.storage;
+  
+  const { synergysData } = useSelector((state) => state.api);
   const [champion_class, setChampion_class] = useState([]);
   const [champion_origin, setChampion_origin] = useState([]);
   const [champion_items, setChampion_items] = useState([]);
@@ -135,7 +133,7 @@ function ChampionsManager() {
     setChampionImg(file);
   }
   return (
-    <OriginsManagerDefault>
+    <AddOrigins>
       <Wrapper className="wrapper">
         <Title align="center">Create Champions</Title>
         <Form
@@ -447,13 +445,13 @@ function ChampionsManager() {
           </Form.Item>
         </Form>
       </Wrapper>
-    </OriginsManagerDefault>
+    </AddOrigins>
   );
 }
 
-export default ChampionsManager;
+export default AddChampions;
 
-const OriginsManagerDefault = styled.div``;
+const AddOrigins = styled.div``;
 
 const Wrapper = styled.div`
   padding-top: 50px;

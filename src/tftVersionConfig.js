@@ -1,8 +1,7 @@
 import getTraitsBonus85 from "utils/traitsFilter/filter_set_8.5";
 import getTraitsBonus7 from "utils/traitsFilter/filter_set_7";
 
-const currentSet = "set85";
-const config = {
+const tftVersionConfig = {
   allApi: {
     set85: {
       version: "8.5",
@@ -19,7 +18,7 @@ const config = {
       },
     },
     set7: {
-      version: "7",
+      version: "7.0",
       filter: getTraitsBonus7,
       firebaseProjectConfig: {
         apiKey: "AIzaSyAADN2hQgDvRSAmPMbKWprz3u-R94UZqWo",
@@ -35,4 +34,4 @@ const config = {
   },
 };
 
-export { config, currentSet };
+export default tftVersionConfig;
