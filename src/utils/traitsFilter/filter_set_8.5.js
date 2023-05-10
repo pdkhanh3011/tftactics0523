@@ -79,7 +79,7 @@ export default function getTraitsBonus(
           if (item === "Anima Squad") count = count + 1;
           break;
         case "Duelist Emblem":
-          if (item === "Duelist ") count = count + 1;
+          if (item === "Duelist") count = count + 1;
           break;
         case "Heart Emblem":
           if (item === "Heart") count = count + 1;
