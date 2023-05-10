@@ -97,6 +97,7 @@ function AddSynergys() {
     try {
       const docRef = await addDoc(collection(db, "teamcomps"), data);
       console.log("Document written with ID: ", docRef.id);
+      form.resetFields();
     } catch (error) {
       throw new Error(error);
     }

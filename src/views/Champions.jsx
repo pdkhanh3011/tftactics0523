@@ -52,14 +52,14 @@ export default function Champions() {
         .filter((i) => {
           let result = false;
           filter.classes.forEach((e) => {
-            if (i.champion_class.includes(e.toLowerCase())) result = true;
+            if (i.champion_class.includes(e)) result = true;
           });
           return filter.classes.length === 0 || result;
         })
         .filter((i) => {
           let result = false;
           filter.origins.forEach((e) => {
-            if (i.champion_origin.includes(e.toLowerCase())) result = true;
+            if (i.champion_origin.includes(e)) result = true;
           });
           return filter.origins.length === 0 || result;
         }),

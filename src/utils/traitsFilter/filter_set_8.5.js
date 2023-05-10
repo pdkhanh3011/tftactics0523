@@ -18,8 +18,7 @@ export default function getTraitsBonus(
         !uniqueTraits.includes("Duelist") && uniqueTraits.push("Duelist");
         break;
       case "Heart Emblem":
-        !uniqueTraits.includes("Heart") &&
-          uniqueTraits.push("Heart");
+        !uniqueTraits.includes("Heart") && uniqueTraits.push("Heart");
         break;
       case "InfiniTeam Emblem":
         !uniqueTraits.includes("InfiniTeam") && uniqueTraits.push("InfiniTeam");
@@ -66,7 +65,8 @@ export default function getTraitsBonus(
       }
     });
     championUnique.forEach((a) => {
-      if (a.champion_class.includes(item) || a.champion_origin.includes(item)) count += 1;
+      if (a.champion_class.includes(item) || a.champion_origin.includes(item))
+        count += 1;
     });
 
     // count trait from item
@@ -111,8 +111,9 @@ export default function getTraitsBonus(
     if (
       item === "Corrupted" ||
       item === "Forecaster" ||
-      (item === "Parallel" && count === 2) || 
-      (item === "Riftwalker" && count === 3) 
+      (item === "Parallel" && count === 2) ||
+      (item === "Riftwalker" && count === 3) ||
+      (item === "Supers" && count === 3)
     )
       bonus_level = 3;
     return { name: item, count, lvls, bonus_level };
