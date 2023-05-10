@@ -16,7 +16,6 @@ import ChampionDetail from "views/ChampionDetail";
 import ScrollToTop from "components/common/ScrollToTop";
 import { Provider } from "react-redux";
 import store from "./store/store";
-// import CmsLayout from "layouts/CmsLayout";
 
 const CmsLayout = lazy(() => import("layouts/CmsLayout"));
 const DatabaseLayout = lazy(() => import("./views/Database/DatabaseLayout"));
