@@ -84,7 +84,7 @@ function Champions() {
     [championsData, increaseByCost, increaseByName]
   );
   return (
-    <ChampionsDefault id="champions-default">
+    <ChampionsWrap id="champions-default">
       <div className="wrapper">
         <div className="title">
           <p>
@@ -170,13 +170,13 @@ function Champions() {
           </div>
         </div>
       </div>
-    </ChampionsDefault>
+    </ChampionsWrap>
   );
 }
 
 export default Champions;
 
-const ChampionsDefault = styled.div`
+const ChampionsWrap = styled.div`
   .wrapper {
     .title {
       p {

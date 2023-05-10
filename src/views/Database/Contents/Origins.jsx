@@ -20,7 +20,7 @@ function Origins() {
     );
   }, [searchText, synergysData]);
   return (
-    <OriginDefault id="origin-default">
+    <OriginsWrap id="origin-default">
       <div className="wrapper">
         <div className="title">
           <p>
@@ -99,13 +99,13 @@ function Origins() {
           </div>
         </div>
       </div>
-    </OriginDefault>
+    </OriginsWrap>
   );
 }
 
 export default Origins;
 
-const OriginDefault = styled.div`
+const OriginsWrap = styled.div`
   .wrapper {
     .title {
       p {

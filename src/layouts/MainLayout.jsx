@@ -2,18 +2,16 @@ import styled from "styled-components";
 
 function MainLayout(props) {
   return (
-    <div id="content-layout-default">
-      <Wrap>
-        <Navigation>
-          {props.nameContent}
-          {props.sideContent}
-        </Navigation>
-        <div className="content">
-          {props.titleContent}
-          {props.mainContent}
-        </div>
-      </Wrap>
-    </div>
+    <Wrap>
+      <Navigation>
+        {props.nameContent}
+        {props.sideContent}
+      </Navigation>
+      <div className="content">
+        {props.titleContent}
+        {props.mainContent}
+      </div>
+    </Wrap>
   );
 }
 

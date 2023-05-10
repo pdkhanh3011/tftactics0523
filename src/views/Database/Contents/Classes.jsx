@@ -20,7 +20,7 @@ function Classes() {
     );
   }, [searchText, synergysData]);
   return (
-    <OriginDefault id="origin-default">
+    <ClassesWrap id="origin-default">
       <div className="wrapper">
         <div className="title">
           <p>
@@ -99,13 +99,13 @@ function Classes() {
           </div>
         </div>
       </div>
-    </OriginDefault>
+    </ClassesWrap>
   );
 }
 
 export default Classes;
 
-const OriginDefault = styled.div`
+const ClassesWrap = styled.div`
   .wrapper {
     .title {
       p {

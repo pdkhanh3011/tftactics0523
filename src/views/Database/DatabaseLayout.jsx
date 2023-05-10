@@ -17,7 +17,7 @@ function DatabaseLayout() {
     setSearchText(searchText);
   }
   return (
-    <DatabaseDefault id="database-default">
+    <DatabaseWrap id="database-default">
       <MainLayout
         nameContent={
           <DatabaseLayoutTitle>
@@ -142,7 +142,7 @@ function DatabaseLayout() {
           </MainContent>
         }
       />
-    </DatabaseDefault>
+    </DatabaseWrap>
   );
 }
 
@@ -160,7 +160,7 @@ const DatabaseLayoutTitle = styled.div`
   }
 `;
 
-const DatabaseDefault = styled.div`
+const DatabaseWrap = styled.div`
   .navigation-items {
     ul {
       list-style: none;

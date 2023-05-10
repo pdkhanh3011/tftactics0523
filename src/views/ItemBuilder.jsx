@@ -108,7 +108,7 @@ function ItemBuilder() {
     ]);
   }, [searctText]);
   return itemDetail ? (
-    <ItemBuilderDefault id="item-builder">
+    <ItemBuilderWrap id="item-builder">
       <MainLayout
         sideContent={
           <ItemBulderSideContent>
@@ -277,7 +277,7 @@ function ItemBuilder() {
           </ItemBuildMainContent>
         }
       />
-    </ItemBuilderDefault>
+    </ItemBuilderWrap>
   ) : (
     ""
   );
@@ -344,7 +344,7 @@ const ItemBuildMainContent = styled.div`
   }
 `;
 
-const ItemBuilderDefault = styled.div`
+const ItemBuilderWrap = styled.div`
   .content {
     padding-left: 30px;
   }

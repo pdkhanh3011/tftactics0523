@@ -174,7 +174,7 @@ function ChampionsStats() {
     });
   }, [filterOptions]);
   return (
-    <ChampionsStatsDefault id="champions-stats">
+    <ChampionsStatsWrap id="champions-stats">
       <div className="wrapper">
         <div className="title">
           <p>
@@ -285,13 +285,13 @@ function ChampionsStats() {
           </div>
         </div>
       </div>
-    </ChampionsStatsDefault>
+    </ChampionsStatsWrap>
   );
 }
 
 export default ChampionsStats;
 
-const ChampionsStatsDefault = styled.div`
+const ChampionsStatsWrap = styled.div`
   .wrapper {
     .title {
       p {
