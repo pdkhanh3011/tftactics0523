@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 function TopNavigation(props) {
   return (
-    <TopNavigationDefault
+    <TopNavigationWrap
       id="header-navigation"
       isOpenNaviagtion={props.isOpenNaviagtion}
     >
@@ -51,13 +51,13 @@ function TopNavigation(props) {
           </li>
         </ul>
       </div>
-    </TopNavigationDefault>
+    </TopNavigationWrap>
   );
 }
 
 export default TopNavigation;
 
-const TopNavigationDefault = styled.div`
+const TopNavigationWrap = styled.div`
   height: 50px;
   background-color: #102531;
   border-bottom: 1px solid #17313a;

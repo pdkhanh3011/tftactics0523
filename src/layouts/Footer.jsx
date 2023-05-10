@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export default function Footer() {
   return (
-    <FooterWrapper>
+    <FooterWrap>
       <div className="container">
         TFTACTICS.GG isn’t endorsed by Riot Games and doesn’t reflect the views
         or opinions of Riot Games or anyone officially involved in producing or
@@ -11,11 +11,11 @@ export default function Footer() {
         Legends © Riot Games, Inc.
         <p>© TFTactics 2021</p>
       </div>
-    </FooterWrapper>
+    </FooterWrap>
   );
 }
 
-const FooterWrapper = styled.div`
+const FooterWrap = styled.div`
   width: 100%;
   text-align: center;
   margin-top: auto;

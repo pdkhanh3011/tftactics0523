@@ -15,7 +15,7 @@ function Header(props) {
     dispatch(getData());
   }
   return (
-    <RootHeaderDefault id="root-header">
+    <HeaderWrap id="root-header">
       <div className="wrapper">
         <div className="icon-version">
           <div className="icon">
@@ -49,13 +49,13 @@ function Header(props) {
           size="xl"
         />
       </div>
-    </RootHeaderDefault>
+    </HeaderWrap>
   );
 }
 
 export default Header;
 
-const RootHeaderDefault = styled.div`
+const HeaderWrap = styled.div`
   width: 100%;
   background-color: #0d202b;
   .wrapper {
@@ -100,21 +100,11 @@ const RootHeaderDefault = styled.div`
     padding-left: 45px;
     padding-right: 45px;
     .wrapper {
-      .icon-version {
-        .icon {
-          img {
-          }
-        }
-      }
       .search-bar {
         margin: 0 30px 0 15px;
       }
       .download {
         display: none;
-        .download-btn {
-          span {
-          }
-        }
       }
       .navigation-btn {
         display: block;

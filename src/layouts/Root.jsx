@@ -20,7 +20,7 @@ function RootLayout() {
     if (window.location.pathname === "/") navigate("/teamcomps");
   }, []);
   return (
-    <RootLayoutDefault id="root-layout">
+    <RootLayoutWrap id="root-layout">
       <div className="my-content">
         --- A clone of Tftactics use ReactJs, Firebase --- 
       </div>
@@ -31,13 +31,13 @@ function RootLayout() {
       />
       <Content>{isLoading || <Outlet />}</Content>
       <Footer />
-    </RootLayoutDefault>
+    </RootLayoutWrap>
   );
 }
 
 export default RootLayout;
 
-const RootLayoutDefault = styled.div`
+const RootLayoutWrap = styled.div`
   width: 100%;
   margin: 0 auto;
   padding: 0;

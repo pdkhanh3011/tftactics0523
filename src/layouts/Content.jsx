@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 function Content(props) {
   return (
-    <ContentDefault id="content-default">
+    <ContentWrap id="content-default">
       <Wrapper className="wrapper">
         <a className="version-update" href="/">
           <div className="update-title">
@@ -12,13 +12,13 @@ function Content(props) {
         </a>
         {props.children}
       </Wrapper>
-    </ContentDefault>
+    </ContentWrap>
   );
 }
 
 export default Content;
 
-const ContentDefault = styled.div`
+const ContentWrap = styled.div`
   min-height: 100vh;
   padding-top: 45px;
   background-color: #0d202b;

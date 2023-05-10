@@ -3,7 +3,7 @@ import styled from "styled-components";
 function MainLayout(props) {
   return (
     <div id="content-layout-default">
-      <Wrapper>
+      <Wrap>
         <Navigation>
           {props.nameContent}
           {props.sideContent}
@@ -12,14 +12,14 @@ function MainLayout(props) {
           {props.titleContent}
           {props.mainContent}
         </div>
-      </Wrapper>
+      </Wrap>
     </div>
   );
 }
 
 export default MainLayout;
 
-const Wrapper = styled.div`
+const Wrap = styled.div`
   min-height: 100vh;
   display: grid;
   grid-template-columns: 27.8% auto;
