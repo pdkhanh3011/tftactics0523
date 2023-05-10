@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import Button from "./Button";
-import { useState, } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 function Select(props) {
@@ -15,23 +15,23 @@ function Select(props) {
     return "dropdown-item";
   }
   function onClickItem(data) {
-    setData(pre => {
-      pre.forEach(item => {
+    setData((pre) => {
+      pre.forEach((item) => {
         item.isSelected = false;
       });
-      pre.find(item => item.value === data).isSelected = true;
+      pre.find((item) => item.value === data).isSelected = true;
       return pre;
-    })
+    });
     props.handleSelect(data);
   }
   return (
-    <SelectDefault
+    <SelectWrap
       className={props.className}
       id="default-select"
       onClick={hanleClick}
     >
       <div className="value">
-        <span>{data?.find(item => item.isSelected === true)?.text}</span>
+        <span>{data?.find((item) => item.isSelected === true)?.text}</span>
       </div>
       <div className="button-dropdown">
         <FontAwesomeIcon icon={solid("caret-down")} />
@@ -53,13 +53,13 @@ function Select(props) {
       ) : (
         ""
       )}
-    </SelectDefault>
+    </SelectWrap>
   );
 }
 
 export default Select;
 
-const SelectDefault = styled.div`
+const SelectWrap = styled.div`
   position: relative;
   cursor: pointer;
   background-color: #123040;

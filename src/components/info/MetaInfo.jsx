@@ -13,7 +13,7 @@ const MetaInfo = memo((props) => {
     if (type === "Low") return { color: "#4caf50" };
   }
   return (
-    <MetaInfoWrapper>
+    <MetaInfoWrap>
       <div key={props.team_detail.name} className="team-comps-item">
         <div className="team-comps-item-line-1">
           <div className="item-line-1-name">
@@ -52,7 +52,7 @@ const MetaInfo = memo((props) => {
                   .map((item) => {
                     return (
                       item.bonus_level >= 1 && (
-                        <SynergyInfoWrapper
+                        <SynergyInfoWrap
                           key={item.name}
                           bonus_level_color={
                             BONUS_LEVEL_COLOR[item.bonus_level]
@@ -68,7 +68,7 @@ const MetaInfo = memo((props) => {
                               bonus_level={item.bonus_level}
                             />
                           </Suspense>
-                        </SynergyInfoWrapper>
+                        </SynergyInfoWrap>
                       )
                     );
                   })}
@@ -97,13 +97,13 @@ const MetaInfo = memo((props) => {
           </div>
         </div>
       </div>
-    </MetaInfoWrapper>
+    </MetaInfoWrap>
   );
 });
 
 export default MetaInfo;
 
-const SynergyInfoWrapper = styled.div`
+const SynergyInfoWrap = styled.div`
   margin-right: 5px;
   margin-bottom: 10px;
   height: min-content;
@@ -140,7 +140,7 @@ const SynergyInfoWrapper = styled.div`
   }
 `;
 
-const MetaInfoWrapper = styled.div`
+const MetaInfoWrap = styled.div`
   .team-comps-item {
     cursor: pointer;
     margin-bottom: 10px;

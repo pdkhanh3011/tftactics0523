@@ -7,17 +7,17 @@ export default function SelectSide({ children, name, count, expand }) {
   const [isExpand, setIsExpand] = useState(expand ? true : false);
 
   return (
-    <SelectSideWrapper isExpand={isExpand} count={count}>
+    <SelectSideWrap isExpand={isExpand} count={count}>
       <div className="title" onClick={() => setIsExpand((pre) => !pre)}>
         <span>{name}</span>
         <FontAwesomeIcon icon={solid("angle-down")} />
       </div>
       <ul>{children}</ul>
-    </SelectSideWrapper>
+    </SelectSideWrap>
   );
 }
 
-const SelectSideWrapper = styled.div`
+const SelectSideWrap = styled.div`
   transition: all 0.5s;
   overflow: hidden;
   height: ${({ isExpand, count }) =>

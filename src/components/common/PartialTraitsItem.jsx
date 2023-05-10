@@ -16,8 +16,8 @@ export default function PartialTraitsItem({
   lvls,
 }) {
   return (
-    <PartialTraitsItemWrapper>
-      <SynergyInfoWrapper bonus_level_color={BONUS_LEVEL_COLOR[bonus_level]}>
+    <PartialTraitsItemWrap>
+      <SynergyInfoWrap bonus_level_color={BONUS_LEVEL_COLOR[bonus_level]}>
         <SynergyInfo
           width={width}
           height={height}
@@ -27,7 +27,7 @@ export default function PartialTraitsItem({
           bonus_level={bonus_level}
           className="teambuilder-synergy-info"
         />
-      </SynergyInfoWrapper>
+      </SynergyInfoWrap>
       <div className="trait-info">
         <div className="trait-info-name">{capitalize(synergy_name)}</div>
         <div className="trait-info-level">
@@ -42,7 +42,9 @@ export default function PartialTraitsItem({
                     {index < lvls.length - 1 && (
                       <FontAwesomeIcon
                         size="sm"
-                        className={count >= Number(lvls[index + 1]) ? "active" : ""}
+                        className={
+                          count >= Number(lvls[index + 1]) ? "active" : ""
+                        }
                         icon={solid("angle-right")}
                       />
                     )}
@@ -59,11 +61,11 @@ export default function PartialTraitsItem({
           )}
         </div>
       </div>
-    </PartialTraitsItemWrapper>
+    </PartialTraitsItemWrap>
   );
 }
 
-const PartialTraitsItemWrapper = styled.div`
+const PartialTraitsItemWrap = styled.div`
   display: flex;
   align-items: center;
   background-color: red;
@@ -93,7 +95,7 @@ const PartialTraitsItemWrapper = styled.div`
   }
 `;
 
-const SynergyInfoWrapper = styled.div`
+const SynergyInfoWrap = styled.div`
   cursor: pointer;
   height: 25px;
   display: flex;
@@ -115,8 +117,7 @@ const SynergyInfoWrapper = styled.div`
     border-right: 20px solid transparent;
     z-index: 1;
     bottom: 100%;
-    border-bottom: 10px solid
-      ${(props) => props.bonus_level_color || "#123040"};
+    border-bottom: 10px solid ${(props) => props.bonus_level_color || "#123040"};
   }
   &::after {
     content: "";
@@ -127,7 +128,6 @@ const SynergyInfoWrapper = styled.div`
     border-right: 20px solid transparent;
     z-index: 1;
     top: 100%;
-    border-top: 10px solid
-      ${(props) => props.bonus_level_color || "#123040"};
+    border-top: 10px solid ${(props) => props.bonus_level_color || "#123040"};
   }
 `;

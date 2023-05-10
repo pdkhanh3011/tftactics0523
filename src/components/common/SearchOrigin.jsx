@@ -17,7 +17,7 @@ function SearchOrigin(props) {
     props.hanleSearch("");
   }
   return (
-    <OriginSeachDefault
+    <OriginSeachWrap
       reverse={props.reverse}
       minWidth={props.minWidth}
       isFocus={isFocus}
@@ -58,13 +58,13 @@ function SearchOrigin(props) {
           )}
         </div>
       </div>
-    </OriginSeachDefault>
+    </OriginSeachWrap>
   );
 }
 
 export default SearchOrigin;
 
-const OriginSeachDefault = styled.div`
+const OriginSeachWrap = styled.div`
   display: flex;
   align-items: center;
   border: 1px solid #17313a;

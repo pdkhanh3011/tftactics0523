@@ -21,14 +21,12 @@ export default function TierStatus(props) {
   };
   return (
     <React.Fragment>
-      <TierStatusDefault {...tiersStyle[props.tier]}>
-        {props.tier}
-      </TierStatusDefault>
+      <TierStatusWrap {...tiersStyle[props.tier]}>{props.tier}</TierStatusWrap>
     </React.Fragment>
   );
 }
 
-const TierStatusDefault = styled.button`
+const TierStatusWrap = styled.button`
   text-transform: uppercase;
   border: none;
   border-radius: 4px;

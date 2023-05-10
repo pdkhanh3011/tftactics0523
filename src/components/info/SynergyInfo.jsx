@@ -10,8 +10,7 @@ const SynergyInfo = memo((props) => {
   const [hiddenPopup, setHiddenPopup] = useState(true);
 
   const synergyDetail = synergysData.find(
-    (item) =>
-      item.synergy_name === props.synergy_name
+    (item) => item.synergy_name === props.synergy_name
   );
 
   const championsList = championsData.filter(
@@ -21,7 +20,7 @@ const SynergyInfo = memo((props) => {
   );
 
   return (
-    <SynergyInfoDefault
+    <SynergyInfoWrap
       width={props.width}
       height={props.height}
       loadDone={loadDone}
@@ -58,13 +57,13 @@ const SynergyInfo = memo((props) => {
                     .split("/")
                     .map((item, index) => {
                       let a = item.split("$");
-                      return (  
+                      return (
                         <li key={index}>
                           <span
                             className={
                               index + 1 === props.bonus_level ||
-                                (props.bonus_level === 3 && props.count === 2) ||
-                                (props.bonus_level === 3 && props.count === 1)
+                              (props.bonus_level === 3 && props.count === 2) ||
+                              (props.bonus_level === 3 && props.count === 1)
                                 ? "active"
                                 : ""
                             }
@@ -107,13 +106,13 @@ const SynergyInfo = memo((props) => {
           </div>
         )}
       </div>
-    </SynergyInfoDefault>
+    </SynergyInfoWrap>
   );
 });
 
 export default SynergyInfo;
 
-const SynergyInfoDefault = styled.div`
+const SynergyInfoWrap = styled.div`
   .wrapper {
     display: flex;
     align-items: center;

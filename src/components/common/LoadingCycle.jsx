@@ -2,16 +2,16 @@ import styled from "styled-components";
 
 export default function LoadingCycle(props) {
   return (
-    <LoadindCycleWrapper className={props.className}>
+    <LoadindCycleWrap className={props.className}>
       <div></div>
       <div></div>
       <div></div>
       <div></div>
-    </LoadindCycleWrapper>
+    </LoadindCycleWrap>
   );
 }
 
-const LoadindCycleWrapper = styled.div`
+const LoadindCycleWrap = styled.div`
   position: relative;
   display: flex;
   justify-content: center;

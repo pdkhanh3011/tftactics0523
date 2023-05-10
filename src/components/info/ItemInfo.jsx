@@ -37,12 +37,12 @@ const ItemInfo = memo((props) => {
     }
   }
   return (
-    <ItemInfoDefault
+    <ItemInfoWrap
       onMouseEnter={() => onMouseEnter()}
       onClick={props.hanleClick}
       className={props.className}
     >
-      <Wrapper
+      <Wrap
         popupPosition={props.popupPosition}
         loadDone={loadDone}
         width={props.width}
@@ -144,14 +144,14 @@ const ItemInfo = memo((props) => {
             )}
           </div>
         )}
-      </Wrapper>
-    </ItemInfoDefault>
+      </Wrap>
+    </ItemInfoWrap>
   );
 });
 
 export default ItemInfo;
 
-const ItemInfoDefault = styled.div`
+const ItemInfoWrap = styled.div`
   position: relative;
   &:hover {
     .avatar-item-popup {
@@ -159,7 +159,7 @@ const ItemInfoDefault = styled.div`
     }
   }
 `;
-const Wrapper = styled.div`
+const Wrap = styled.div`
   .loading {
     display: ${(props) => (props.loadDone === true ? "none" : "block")};
     padding: 20px;

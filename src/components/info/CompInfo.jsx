@@ -43,7 +43,7 @@ const TeamComp = memo((props) => {
   }
 
   return (
-    <TeamCompWrapper is_opened={expand}>
+    <TeamCompWrap is_opened={expand}>
       <div
         onClick={hanleClickComp}
         key={props.team_detail.name}
@@ -123,7 +123,7 @@ const TeamComp = memo((props) => {
                   .map((item) => {
                     return (
                       item.bonus_level >= 1 && (
-                        <SynergyInfoWrapper
+                        <SynergyInfoWrap
                           key={item.name}
                           bonus_level_color={
                             BONUS_LEVEL_COLOR[item.bonus_level]
@@ -139,7 +139,7 @@ const TeamComp = memo((props) => {
                               bonus_level={item.bonus_level}
                             />
                           </Suspense>
-                        </SynergyInfoWrapper>
+                        </SynergyInfoWrap>
                       )
                     );
                   })}
@@ -246,13 +246,13 @@ const TeamComp = memo((props) => {
           </div>
         )}
       </div>
-    </TeamCompWrapper>
+    </TeamCompWrap>
   );
 });
 
 export default TeamComp;
 
-const SynergyInfoWrapper = styled.div`
+const SynergyInfoWrap = styled.div`
   margin-right: 5px;
   margin-bottom: 10px;
   height: min-content;
@@ -289,7 +289,7 @@ const SynergyInfoWrapper = styled.div`
   }
 `;
 
-const TeamCompWrapper = styled.div`
+const TeamCompWrap = styled.div`
   .team-comps-item {
     cursor: pointer;
     margin-bottom: 10px;

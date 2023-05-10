@@ -2,16 +2,20 @@ import styled from "styled-components";
 
 function Button(props) {
   return (
-    <ButtonDefault id="defaul-button" className={props.className} onClick={() => props.handleOnClick(props.value)}>
+    <ButtonWrap
+      id="defaul-button"
+      className={props.className}
+      onClick={() => props.handleOnClick(props.value)}
+    >
       {props.children}
       <span>{props.btnText}</span>
-    </ButtonDefault>
+    </ButtonWrap>
   );
 }
 
 export default Button;
 
-const ButtonDefault = styled.div`
+const ButtonWrap = styled.div`
   padding: 7px 12px;
   display: flex;
   align-items: center;

@@ -13,29 +13,29 @@ export default function Status(props) {
     new: {
       color: "#ffdf7f",
       "font-size": "10px",
-    }
-  }
+    },
+  };
   return (
-    <StatusWrapper className={props.className} {...stylesStatus[props.status]}>
+    <StatusWrap className={props.className} {...stylesStatus[props.status]}>
       {props.status === "up" && "▴"}
       {props.status === "down" && "▾"}
       {props.status === "new" && "n"}
-    </StatusWrapper>
+    </StatusWrap>
   );
 }
 
-const StatusWrapper = styled.div`
+const StatusWrap = styled.div`
   border-radius: 50%;
   width: 22px;
   height: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${props => props.color};
+  color: ${(props) => props.color};
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: ${props => props["font-size"]};
+  font-size: ${(props) => props["font-size"]};
   font-weight: 600;
   text-transform: uppercase;
 `;

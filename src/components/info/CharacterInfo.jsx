@@ -13,7 +13,9 @@ import { useSelector } from "react-redux";
 const CharacterInfo = memo((props) => {
   const [hiddenPopup, setHiddenPopup] = useState(true);
   const [loadDone, setLoadDone] = useState(false);
-  const { championsData, synergysData, itemsData } = useSelector((state) => state.api);
+  const { championsData, synergysData, itemsData } = useSelector(
+    (state) => state.api
+  );
   const navigate = useNavigate();
 
   const championDetail = championsData.find(
@@ -48,7 +50,7 @@ const CharacterInfo = memo((props) => {
   }
   return (
     championDetail && (
-      <CharacterInfoDefault
+      <CharacterInfoWrap
         loadDone={loadDone}
         border_color={CHARACTER_BORDERS[championDetail.champion_cost]}
         border_image={BORDER_IMAGES[championDetail.champion_cost]}
@@ -139,14 +141,14 @@ const CharacterInfo = memo((props) => {
             </div>
           )}
         </div>
-      </CharacterInfoDefault>
+      </CharacterInfoWrap>
     )
   );
 });
 
 export default CharacterInfo;
 
-const CharacterInfoDefault = styled.div`
+const CharacterInfoWrap = styled.div`
   position: relative;
   ${(props) =>
     props.max_level &&

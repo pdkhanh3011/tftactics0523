@@ -41,11 +41,11 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/manager",
+    path: "/curd",
     element: <CmsLayout />,
     children: [
       {
-        path: "/manager/origins",
+        path: "/curd/origins",
         element: (
           <PrivateRoute>
             <Suspense>
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/manager/teamcomps",
+        path: "/curd/teamcomps",
         element: (
           <PrivateRoute>
             <Suspense>
@@ -65,7 +65,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/manager/items",
+        path: "/curd/items",
         element: (
           <PrivateRoute>
             <Suspense>
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/manager/champions",
+        path: "/curd/champions",
         element: (
           <PrivateRoute>
             <Suspense>

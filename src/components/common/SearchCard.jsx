@@ -16,7 +16,7 @@ export default function SearchCard({
     hanle_search(inputText.trim().toLowerCase());
   }
   return (
-    <SearchCardWrapper
+    <SearchCardWrap
       onDrop={hanle_on_drop}
       onDragOver={(e) => e.preventDefault()}
     >
@@ -37,11 +37,11 @@ export default function SearchCard({
         <div className="search-filter">{filter}</div>
       </div>
       <div className="content">{children}</div>
-    </SearchCardWrapper>
+    </SearchCardWrap>
   );
 }
 
-const SearchCardWrapper = styled.div`
+const SearchCardWrap = styled.div`
   border: 1px solid #17313a;
   color: hsla(0, 0%, 100%, 0.9);
   font-size: 14px;

@@ -13,7 +13,9 @@ function HexagonMinimap(props) {
   const navigate = useNavigate();
   const [hiddenPopup, setHiddenPopup] = useState(true);
   const [loadDone, setLoadDone] = useState(false);
-  const { championsData, synergysData, itemsData } = useSelector((state) => state.api);
+  const { championsData, synergysData, itemsData } = useSelector(
+    (state) => state.api
+  );
   let championDetail = {};
   let synergys = [];
   let itemsRecommend = [];
@@ -41,7 +43,7 @@ function HexagonMinimap(props) {
 
   return (
     championDetail && (
-      <HexagonMinimapDefault
+      <HexagonMinimapWrap
         loadDone={loadDone}
         border_color={CHARACTER_BORDERS[championDetail.champion_cost]}
         border_image={BORDER_IMAGES[championDetail.champion_cost]}
@@ -135,14 +137,14 @@ function HexagonMinimap(props) {
             </div>
           )}
         </div>
-      </HexagonMinimapDefault>
+      </HexagonMinimapWrap>
     )
   );
 }
 
 export default HexagonMinimap;
 
-const HexagonMinimapDefault = styled.div`
+const HexagonMinimapWrap = styled.div`
   position: relative;
   .item {
     position: absolute;

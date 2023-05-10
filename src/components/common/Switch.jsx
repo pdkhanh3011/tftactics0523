@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export default function Switch(props) {
-  return <SwitchWrapper active={props.active}></SwitchWrapper>;
+  return <SwitchWrap active={props.active}></SwitchWrap>;
 }
 
-const SwitchWrapper = styled.div`
+const SwitchWrap = styled.div`
   position: relative;
   display: block;
   width: 26px;
@@ -12,7 +12,7 @@ const SwitchWrapper = styled.div`
   background: #123040;
   border-radius: 100px;
   margin-left: 10px;
-  background: ${(props) => props.active ? "#227aad" : "#123040"};
+  background: ${(props) => (props.active ? "#227aad" : "#123040")};
   &::before {
     content: "";
     position: absolute;
@@ -23,7 +23,9 @@ const SwitchWrapper = styled.div`
     height: 12px;
     background: hsla(0, 0%, 100%, 0.9);
     border-radius: 100px;
-    ${(props) => props.active && `
+    ${(props) =>
+      props.active &&
+      `
       left: auto;
       right: 1px;
     `}

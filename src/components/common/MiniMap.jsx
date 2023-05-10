@@ -21,10 +21,10 @@ export default function MiniMap(props) {
     }
     return elements;
   }
-  return <MiniMapWrapper>{createElements(positionAmount)}</MiniMapWrapper>;
+  return <MiniMapWrap>{createElements(positionAmount)}</MiniMapWrap>;
 }
 
-const MiniMapWrapper = styled.div`
+const MiniMapWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
   max-width: 300px;

@@ -13,9 +13,11 @@ export default function Hexagon({
   hanle_change_level,
   hanle_on_drop,
   position,
-  traits_bonus
+  traits_bonus,
 }) {
-  const { championsData, itemsData, synergysData } = useSelector((state) => state.api);
+  const { championsData, itemsData, synergysData } = useSelector(
+    (state) => state.api
+  );
   const [levelVisible, setLevelsVisible] = useState(false);
 
   let championDetail = championsData.find((c) => c.champion_name === data.name);
@@ -23,13 +25,19 @@ export default function Hexagon({
   let championTraits = [];
 
   if (championDetail) {
-    championTraits = synergysData.filter(s => championDetail?.champion_class.includes(s.synergy_name) || championDetail?.champion_origin.includes(s.synergy_name));
-    championTraits = championTraits.map(championTrait => {
+    championTraits = synergysData.filter(
+      (s) =>
+        championDetail?.champion_class.includes(s.synergy_name) ||
+        championDetail?.champion_origin.includes(s.synergy_name)
+    );
+    championTraits = championTraits.map((championTrait) => {
       return {
         ...championTrait,
-        traits_bonus: traits_bonus.find(traitBonus => traitBonus.name === championTrait.synergy_name).bonus_level
-      }
-    })
+        traits_bonus: traits_bonus.find(
+          (traitBonus) => traitBonus.name === championTrait.synergy_name
+        ).bonus_level,
+      };
+    });
   }
 
   function getItemImage(item_name) {
@@ -53,12 +61,9 @@ export default function Hexagon({
     return `bonus-level-${bonus_level}`;
   }
   return (
-    <HexagonWrapper
+    <HexagonWrap
       draggable={data.cost && true}
-      backgroud_image={
-        championDetail
-          ?.champion_img_link
-      }
+      backgroud_image={championDetail?.champion_img_link}
       border_color={HEXAGON_BUILDER_BORDER_COLORS[data?.cost]}
       className={className}
       onMouseOver={() => setLevelsVisible(true)}
@@ -83,18 +88,18 @@ export default function Hexagon({
           })}
       </div>
       {championDetail?.champion_name && (
-        <span className="character-name">
-        {championDetail.champion_name}
-      </span>
+        <span className="character-name">{championDetail.champion_name}</span>
       )}
       {championTraits.length > 0 && (
-        <div className="character-traits">{
-        championTraits.map(t => (
-          <span className={getBonusColor(t.traits_bonus
-            )} key={t.synergy_name}>
-            <img src={t.synergy_image} alt="" />
-          </span>
-        ))}
+        <div className="character-traits">
+          {championTraits.map((t) => (
+            <span
+              className={getBonusColor(t.traits_bonus)}
+              key={t.synergy_name}
+            >
+              <img src={t.synergy_image} alt="" />
+            </span>
+          ))}
         </div>
       )}
       {data?.max_level !== undefined && (
@@ -125,11 +130,11 @@ export default function Hexagon({
       )}
       <div className="hexTop"></div>
       <div className="hexBottom"></div>
-    </HexagonWrapper>
+    </HexagonWrap>
   );
 }
 
-const HexagonWrapper = styled.div`
+const HexagonWrap = styled.div`
   display: inline-block;
   text-align: left;
   position: relative;
@@ -213,7 +218,9 @@ const HexagonWrapper = styled.div`
       color: orange;
     }
     svg {
-      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     }
   }
   .character-name {
@@ -223,13 +230,16 @@ const HexagonWrapper = styled.div`
     line-height: 1;
     color: rgb(255, 255, 255);
     white-space: nowrap;
-    text-shadow: rgb(0, 0, 0) -1px 0px, rgb(0, 0, 0) 0px 1px, rgb(0, 0, 0) 1px 0px, rgb(0, 0, 0) 0px -1px;
+    text-shadow: rgb(0, 0, 0) -1px 0px, rgb(0, 0, 0) 0px 1px,
+      rgb(0, 0, 0) 1px 0px, rgb(0, 0, 0) 0px -1px;
     text-align: center;
   }
   .character-traits {
     top: -17px;
     span {
-      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
       position: relative;
       width: 20px;
       background-color: #123040;
