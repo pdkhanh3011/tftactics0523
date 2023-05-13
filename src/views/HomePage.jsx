@@ -610,26 +610,6 @@ const HomePageWrap = styled.div`
     margin-right: 5px;
   }
 
-  .home-app .app-features .divider {
-    background: #102531;
-  }
-
-  .divider {
-    margin: 0;
-  }
-
-  .divider {
-    display: block;
-    width: 100%;
-    height: 1px;
-    background: #17313a;
-    margin-top: 20px;
-  }
-
-  .divider.footer {
-    margin: 20px 0;
-  }
-
   .home-app .app-features p {
     line-height: 1.8em;
     margin: 0;
@@ -671,67 +651,6 @@ const HomePageWrap = styled.div`
     -webkit-user-drag: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-  }
-
-  .container .footer-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: nowrap;
-    flex-direction: row;
-  }
-
-  .container .footer-links a,
-  .language-btn {
-    text-align: center;
-    color: #88a0a7;
-    margin: 0 30px;
-    transition: all 0.3s;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-  }
-
-  .container .footer-links a:hover {
-    color: #fff;
-  }
-
-  .container .footer-links .language-btn {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .container .footer-links .language-btn .version {
-    margin-left: 10px;
-  }
-
-  .container .footer-about {
-    color: hsla(0, 0%, 100%, 0.9);
-    font-size: 15px;
-    margin-bottom: 0;
-    text-align: center;
-    max-width: none;
-    line-height: 25px;
-  }
-
-  .container .footer-copyright {
-    color: #88a0a7;
-    font-size: 15px;
-    margin-top: 10px;
-    margin-bottom: 0;
-    text-align: center;
-    max-width: none;
-  }
-
-  .version .value span {
-    font-size: 14px;
-    font-weight: 400;
   }
 
   .article h2 {
@@ -812,11 +731,5 @@ const HomePageWrap = styled.div`
 
   .popup-cost svg {
     color: #fff !important;
-  }
-
-  #language-select .value {
-    padding: 4px 12px;
-    border-radius: 4px;
-    background-color: #123040;
   }
 `;
