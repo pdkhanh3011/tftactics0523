@@ -8,6 +8,10 @@ import { useDispatch } from "react-redux";
 import { updateVersion } from "store/slices/versionSlice";
 import { getData } from "store/slices/apiSlice";
 
+import { Link } from "react-router-dom";
+
+import Logo from './logo/logo.png';
+
 function Header(props) {
   const dispatch = useDispatch();
   function selectVersion(value) {
@@ -18,8 +22,8 @@ function Header(props) {
     <HeaderWrap id="root-header">
       <div className="wrapper">
         <div className="icon-version">
-          <div className="icon">
-            <img alt="TFTactics" src="https://rerollcdn.com/brand.svg" />
+          <div className="icon" title="TFTactician">
+            <Link to="/"><img alt="TFTactician" src={Logo}/></Link>
           </div>
           <div className="version">
             <SelectDropdown
@@ -74,7 +78,7 @@ const HeaderWrap = styled.div`
       .icon {
         margin-right: 15px;
         img {
-          height: 22px;
+          height: 32px;
           vertical-align: middle;
         }
       }

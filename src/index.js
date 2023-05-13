@@ -25,6 +25,8 @@ const TeamBuilder = lazy(() => import("views/TeamBuilder"));
 const ItemBuilder = lazy(() => import("./views/ItemBuilder"));
 const AllChampions = lazy(() => import("views/Champions"));
 
+const Home = lazy(() => import("views/Homepage/Home"));
+
 const AddItems = lazy(() => import("views/Cms/AddItems"));
 const AddSynergys = lazy(() => import("views/Cms/AddSynergys"));
 const SignUp = lazy(() => import("components/auth/SignUp"));
@@ -32,6 +34,14 @@ const AddTeamComps = lazy(() => import("views/Cms/AddTeamComps"));
 const AddChampions = lazy(() => import("views/Cms/AddChampions"));
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <Suspense>
+        <Home />
+      </Suspense>
+    ),
+  },
   {
     path: "/login",
     element: (

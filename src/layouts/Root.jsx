@@ -18,12 +18,12 @@ function RootLayout() {
   useEffect(() => {
     dispatch(getData());
     if (window.location.pathname === "/") navigate("/teamcomps");
-  }, []);
+  });
   return (
     <RootLayoutWrap id="root-layout">
-      <div className="my-content">
+      {/* <div className="my-content">
         --- Tftactics clone use ReactJs, Firebase 10/05/2023 --- 
-      </div>
+      </div> */}
       <Header hanleClickNavigationBtn={() => setIsOpenNaviagtion((pre) => !pre)} />
       <TopNavigation
         isOpenNaviagtion={isOpenNaviagtion}

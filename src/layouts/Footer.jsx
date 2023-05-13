@@ -1,21 +1,40 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
+const web_name = 'TFTactician';
 
 export default function Footer() {
+
   return (
-    <FooterWrap>
+    <FooterWrapper>
       <div className="container">
-        TFTACTICS.GG isn’t endorsed by Riot Games and doesn’t reflect the views
-        or opinions of Riot Games or anyone officially involved in producing or
-        managing League of Legends. League of Legends and Riot Games are
-        trademarks or registered trademarks of Riot Games, Inc. League of
-        Legends © Riot Games, Inc.
-        <p>© TFTactics 2021</p>
+        <div className="footer-links">
+          <Link to="/privacy-policy">Chính sách bảo mật</Link>
+          <a href="https://github.com/hoangxuanlam2007/TFTactician/blob/main/LICENSE" target="_blank" rel="noreferrer">Giấy phép nguồn mở</a>
+          <a href="https://github.com/hoangxuanlam2007/TFTactician" target="_blank" rel="noreferrer">Mã nguồn</a>
+          <a href="https://github.com/hoangxuanlam2007/TFTactician/issues" target="_blank" rel="noreferrer">Báo lỗi</a>
+          <div className="language-btn">Ngôn ngữ 
+            <div className="version">
+            <div id="language-select">
+              <div className="value">
+                <span>Tiếng Việt</span>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div className="divider footer"></div>
+        <p className="footer-about">{web_name} is not endorsed by Riot Games and does not reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
+        <p className="footer-copyright">© {web_name} {(new Date().getFullYear())}</p>
       </div>
-    </FooterWrap>
+    </FooterWrapper>
   );
 }
 
-const FooterWrap = styled.div`
+const FooterWrapper = styled.div`
   width: 100%;
   text-align: center;
   margin-top: auto;
@@ -27,14 +46,6 @@ const FooterWrap = styled.div`
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    p {
-      margin-top: 10px;
-      margin-bottom: 0;
-      color: #88a0a7;
-      font-size: 14px;
-      text-align: center;
-      max-width: none;
-    }
   }
   @media (max-width: 1024px) {
     padding-left: 45px;

@@ -83,7 +83,7 @@ const SelectWrap = styled.div`
     width: 100%;
     left: 0;
     background-color: #102531;
-    z-index: 1;
+    z-index: 10;
     .dropdown-item {
       transition: all 0.3s;
       height: 40px;
