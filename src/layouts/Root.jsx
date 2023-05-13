@@ -22,9 +22,11 @@ function RootLayout() {
   return (
     <RootLayoutWrap id="root-layout">
       <div className="my-content">
-        --- Tftactics clone use ReactJs, Firebase 10/05/2023 --- 
+        --- Tftactics clone use ReactJs, Firebase 10/05/2023 ---
       </div>
-      <Header hanleClickNavigationBtn={() => setIsOpenNaviagtion((pre) => !pre)} />
+      <Header
+        hanleClickNavigationBtn={() => setIsOpenNaviagtion((pre) => !pre)}
+      />
       <TopNavigation
         isOpenNaviagtion={isOpenNaviagtion}
         hanleClickLink={() => setIsOpenNaviagtion(false)}
