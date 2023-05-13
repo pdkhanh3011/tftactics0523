@@ -1,8 +1,8 @@
 @import '~antd/dist/antd.css';
 
 @font-face { 
-  font-family: 'spiegel-regular';
-  src: url('./fonts/Spiegel-Regular.woff') format('woff');
+  font-family: 'sofia-pro';
+  src: url('./fonts/sofia-pro.woff2') format('woff2');
 }
 
 ::-webkit-scrollbar {
@@ -28,11 +28,10 @@ a {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "spiegel-regular",sans-serif;
+  font-family: "sofia-pro",sans-serif;
 }
 
 ol, p, ul {
-  font-family: "spiegel-regular",sans-serif;
   font-size: 16px;
   font-weight: 400;
 }

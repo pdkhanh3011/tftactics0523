@@ -58,6 +58,7 @@ const SelectSideWrap = styled.div`
   }
   ul {
     list-style: none;
+    padding-left: 0;
     li {
       cursor: pointer;
       font-size: 15px;

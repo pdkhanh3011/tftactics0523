@@ -156,7 +156,6 @@ const TeamComp = memo((props) => {
                       <div className="carousel-item-wrapper">
                         <Suspense>
                           <ItemInfo
-                            className="carousel-item"
                             width="32px"
                             height="32px"
                             item_name={itemName}

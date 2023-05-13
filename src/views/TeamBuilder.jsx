@@ -36,7 +36,9 @@ export async function loader({ params }) {
 }
 
 export default function TeamBuilder() {
-  const getTraitsBonus = tftVersionConfig.allApi[useSelector((state) => state.version.versionName)].filter;
+  const getTraitsBonus =
+    tftVersionConfig.allApi[useSelector((state) => state.version.versionName)]
+      .filter;
   // get team data from share link
   const teamData = useLoaderData();
 
@@ -380,6 +382,12 @@ export default function TeamBuilder() {
 
   return (
     <TeamBuilderWrapper>
+      <VerisonUpdate className="version-update" href="/">
+        <div className="update-title">
+          Set 8.5 Update is now live on TFTactics!
+        </div>
+        <div className="update-subtitle">Click here to learn more</div>
+      </VerisonUpdate>
       <div className="team-builder-title">
         <div className="team-builder-title-info">
           <div className="team-builder-title-info-name">
@@ -633,10 +641,46 @@ export default function TeamBuilder() {
   );
 }
 
+const VerisonUpdate = styled.div`
+  position: relative;
+  font-size: 21px;
+  background: #102531;
+  background-image: url(https://rerollcdn.com/update/set-7-5-update-bg.png);
+  background-position: center 600px;
+  background-size: cover;
+  border: 1px solid #17313a;
+  width: 100%;
+  height: 100px;
+  color: hsla(0, 0%, 100%, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  filter: saturate(1);
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 0 auto 30px;
+  text-decoration: none;
+  &:hover {
+    border-color: #227aad;
+  }
+  .update-title {
+    font-weight: 600;
+    font-size: 21px;
+    margin-bottom: 7px;
+  }
+  .update-subtitle {
+    font-size: 16px;
+    color: #579dd4;
+    font-weight: 400;
+  }
+`;
+
 const TeamBuilderWrapper = styled.div`
   color: white;
   min-height: 100vh;
   padding-bottom: 50px;
+  padding-top: 45px;
   .error {
     text-align: center;
     margin-left: 20px;
