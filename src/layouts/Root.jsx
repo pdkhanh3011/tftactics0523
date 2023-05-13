@@ -5,7 +5,6 @@ import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import Footer from "layouts/Footer";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getData } from "store/slices/apiSlice";
 import { useSelector } from "react-redux";
@@ -14,10 +13,8 @@ function RootLayout() {
   const [isOpenNaviagtion, setIsOpenNaviagtion] = useState(false);
   const { isLoading } = useSelector((state) => state.api);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   useEffect(() => {
     dispatch(getData());
-    if (window.location.pathname === "/") navigate("/teamcomps");
   }, []);
   return (
     <RootLayoutWrap id="root-layout">

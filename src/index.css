@@ -5,21 +5,72 @@
   src: url('./fonts/sofia-pro.woff2') format('woff2');
 }
 
+::-webkit-scrollbar {
+  display: none !important;
+}
+
 body {
+  background-color: #0D202B !important;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-size: 15px;
   font-family: "sofia-pro",sans-serif;
 }
 
+ol, p, ul {
+  font-size: 16px;
+  font-weight: 400;
+}
+p {
+  color: #88a0a7;
+  line-height: 2em;
+  margin: 0 0 20px;
+  max-width: 700px;
+}
 
+iframe {
+  height: 80vh;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+}
+
+#root-layout {
+  background-color: #0D202B;
+}
+
+/* Control user drag */
+
+.allow-drag {
+  user-select: text;
+  -moz-user-select: text;
+  -webkit-user-drag: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+}
+
+/* Disable unwanted user drag */
+/* .text-header h3, .text-header h1, .text-header p, .col-12 .row div img, .title-1, .database-layout-title, .navigation-items, a.version-update, #item-builder, .champions-side-title, .title, .team-builder-title, .team-builder-synergy, .team-builder-drag-recipe, .search {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+} */
