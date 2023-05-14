@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
-const web_name = "TFTactician";
+const web_name = "DTCL Plus";
 
 export default function Footer() {
   return (

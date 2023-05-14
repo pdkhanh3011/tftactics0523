@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
 // Website name here
-const web_name = "TFTactician";
+const web_name = "DTCL Plus";
 
 function HomePage() {
   return (
