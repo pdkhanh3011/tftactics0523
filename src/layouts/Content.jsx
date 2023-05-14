@@ -20,7 +20,6 @@ const ContentWrap = styled.div`
 `;
 
 const Wrapper = styled.div`
-  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
 `;

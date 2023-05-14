@@ -27,6 +27,8 @@ export default MainLayout;
 
 const Container = styled.div`
   padding-top: 45px;
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
 const VerisonUpdate = styled.div`
