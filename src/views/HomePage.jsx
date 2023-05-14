@@ -124,8 +124,8 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="row dark">
-        <div className="container">
+      <div className="row dark" id="technologies">
+        <div className="container" id="tech-container">
           <div className="col-12 home-app features">
             <div className="row">
               <div className="col-12 features-title">
@@ -313,6 +313,7 @@ const Banner = styled.div`
 
 const Landing = styled.div`
   min-height: 1000px;
+  max-width: 100vw;
   background-color: #0d202b;
   @media (max-width: 1024px) {
     padding-left: 45px;

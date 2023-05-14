@@ -27,6 +27,12 @@ export default MainLayout;
 
 const Container = styled.div`
   padding-top: 45px;
+  max-width: 1200px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  display: block;
+  position: relative;
 `;
 
 const VerisonUpdate = styled.div`

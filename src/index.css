@@ -2,11 +2,20 @@
 
 @font-face { 
   font-family: 'sofia-pro';
-  src: url('./fonts/sofia-pro.woff2') format('woff2');
+  src: url('./fonts/sofia-pro-regular-vn.woff2') format('woff2');
 }
 
+/* Scroll bar */
 ::-webkit-scrollbar {
-  display: none !important;
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #579dd4;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
 }
 
 body {
@@ -54,6 +63,10 @@ iframe {
 
 #root-layout {
   background-color: #0D202B;
+}
+
+.no-max-width {
+  max-width: none;
 }
 
 /* Control user drag */
