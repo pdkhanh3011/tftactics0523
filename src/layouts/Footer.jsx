@@ -133,6 +133,7 @@ const FooterWrapper = styled.div`
         align-content: center;
         justify-content: center;
         align-items: center;
+        position: relative;
         .version {
           margin-left: 10px;
           .value {
@@ -149,6 +150,7 @@ const FooterWrapper = styled.div`
     }
   }
   @media (max-width: 1024px) {
+    margin-top: 30px;
     padding-left: 45px;
     padding-right: 45px;
   }

@@ -115,4 +115,16 @@ const HeaderWrap = styled.div`
       }
     }
   }
+  @media only screen and (max-width: 520px) {
+    padding: 0 !important;
+    .icon-version {
+      margin: 0 20px !important;
+    }
+    .search-bar {
+      display: none !important;
+    }
+    .wrapper .navigation-btn {
+      margin: 0 20px !important;
+    }
+  }
 `;

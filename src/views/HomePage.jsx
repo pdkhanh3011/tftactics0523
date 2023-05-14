@@ -61,7 +61,7 @@ function HomePage() {
               alt="comps-crop"
             />
           </div>
-          <div className="col-12 col-lg-6 app-image right">
+          <div className="col-12 col-lg-6 app-image right app-info">
             <h2 className="text-white fw-bold">Xây dựng đội hình</h2>
             <p className="grey" style={{ maxWidth: "450px" }}>
               Xây dựng những đội hình mạnh hơn bằng cách lên kế hoạch cho đội
@@ -74,7 +74,7 @@ function HomePage() {
 
       <div className="col-12 home-app">
         <div className="row">
-          <div className="col-12 col-lg-6 app-image left">
+          <div className="col-12 col-lg-6 app-image left app-info">
             <h2 className="text-white fw-bold">Truy tìm anh hùng</h2>
             <p className="grey" style={{ maxWidth: "450px" }}>
               Tra cứu danh sách các tướng DTCL, chỉ số cơ bản, kỹ năng, Tộc/Hệ
@@ -114,7 +114,7 @@ function HomePage() {
               alt="item-crop"
             />
           </div>
-          <div className="col-12 col-lg-6 app-image right">
+          <div className="col-12 col-lg-6 app-image right app-info">
             <h2 className="text-white fw-bold">Lựa chọn trang bị chuẩn</h2>
             <p className="grey" style={{ maxWidth: "450px" }}>
               Tìm những món đồ, trang bị chuẩn dành cho những vị tướng DTCL. Tra
@@ -197,7 +197,7 @@ function HomePage() {
 
       <div className="col-12 home-app no-margin-bottom">
         <div className="row">
-          <div className="col-12 col-lg-6 app-info">
+          <div className="col-12 col-lg-6 app-info contact">
             <h2>Liên hệ</h2>
             <p>
               Nếu bạn gặp phải bất kỳ sự cố hoặc lỗi nào trong quá trình trải
@@ -232,22 +232,22 @@ function HomePage() {
               />{" "}
             </a>
             <a
-              href="https://facebook.com/ch1mmm"
+              href="https://www.facebook.com/profile.php?id=100008397931030"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Liên hệ | Facebook (Hoàng Xuân Lâm)
+              Liên hệ | Facebook (Phan Đình Khánh)
               <img
                 src="https://rerollcdn.com/home/arrow-link.svg"
                 alt="arrow-link"
               />{" "}
             </a>
             <a
-              href="https://www.facebook.com/profile.php?id=100008397931030"
+              href="https://facebook.com/ch1mmm"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Liên hệ | Facebook (Phan Đình Khánh)
+              Liên hệ | Facebook (Hoàng Xuân Lâm)
               <img
                 src="https://rerollcdn.com/home/arrow-link.svg"
                 alt="arrow-link"
@@ -364,6 +364,7 @@ const HomePageWrap = styled.div`
     content: "";
     background-image: url("https://cdn.gametv.vn/news_media/image/TFT-Set-8_0x0_1678155246.png");
     background-size: cover;
+    background-position: center;
     height: 100%;
     width: 100%;
     position: absolute;
