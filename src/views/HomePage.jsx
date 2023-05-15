@@ -734,4 +734,68 @@ const HomePageWrap = styled.div`
   .popup-cost svg {
     color: #fff !important;
   }
+    @media only screen and (max-width: 1024px) {
+    .home-app .app-image.left {
+      padding: 0;
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+    .home-app .app-info {
+      order: -1;
+      justify-content: center !important;
+      margin-bottom: 10px;
+    }
+    .home-app .app-image.left {
+      padding: 0;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-wrap: nowrap;
+      align-content: center;
+    }
+    .col-12.home-app.features {
+      justify-content: center;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .home-app .app-image.left {
+      padding: 0;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      flex-wrap: nowrap;
+    }
+    .home-app .app-info {
+      order: -1;
+      justify-content: center !important;
+      margin-bottom: 10px;
+    }
+    .home-app .app-image.right {
+      padding: 0;
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+    #tech-container .home-app .row {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .home-app .app-info h2 {
+      text-align: center;
+    }
+    .contact {
+      padding: 0 50px !important;
+    }
+  }
 `;

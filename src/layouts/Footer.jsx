@@ -154,4 +154,34 @@ const FooterWrapper = styled.div`
     padding-left: 45px;
     padding-right: 45px;
   }
+  @media only screen and (max-width: 1024px) {
+    .container .footer-links {
+      flex-wrap: wrap !important;
+    }
+    .container .footer-links .language-btn {
+      margin-top: 20px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .container .footer-links {
+      flex-wrap: wrap !important;
+      justify-content: space-between !important;
+    }
+    .container .footer-links .language-btn {
+      display: none !important;
+    }
+  }
+  
+  @media only screen and (max-width: 520px) {
+    .container .footer-links {
+      flex-direction: column !important;
+    }
+    .container .footer-links a:first-child {
+      margin-top: 0 !important;
+    }
+    .container .footer-links a {
+      margin-top: 10px !important;
+    }
+  }
 `;

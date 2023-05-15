@@ -50,4 +50,9 @@ const RootLayoutWrap = styled.div`
       color: #12407c;
     }
   }
+  @media only screen and (max-width: 520px) {
+    .my-content {
+      font-size: 14px !important;
+    }
+  }
 `;
