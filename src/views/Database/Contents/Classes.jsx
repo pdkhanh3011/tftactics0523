@@ -76,7 +76,7 @@ function Classes() {
                           {championsData
                             .filter((champion) =>
                               champion.champion_class.includes(
-                                item.synergy_name.toLowerCase()
+                                item.synergy_name
                               )
                             )
                             .map((a) => {

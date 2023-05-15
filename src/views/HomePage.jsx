@@ -794,4 +794,17 @@ const HomePageWrap = styled.div`
       padding: 0 50px !important;
     }
   }
+  ol,
+  p,
+  ul {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  p {
+    color: #88a0a7;
+    line-height: 2em;
+    margin: 0 0 20px;
+    max-width: 700px;
+  }
 `;

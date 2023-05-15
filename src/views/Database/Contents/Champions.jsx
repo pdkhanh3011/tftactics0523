@@ -1,13 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import styled from "styled-components";
-import {
-  useState,
-  useEffect,
-  lazy,
-  Suspense,
-  useCallback,
-} from "react";
+import { useState, useEffect, lazy, Suspense, useCallback } from "react";
 import { useOutletContext } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -268,6 +262,7 @@ const ChampionsWrap = styled.div`
               color: #88a0a7;
             }
             .coin {
+              color: white;
               margin-right: 10px;
             }
           }
