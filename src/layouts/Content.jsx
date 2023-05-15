@@ -17,6 +17,10 @@ const ContentWrap = styled.div`
     padding-left: 45px;
     padding-right: 45px;
   }
+  @media only screen and (max-width: 520px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 `;
 
 const Wrapper = styled.div`

@@ -677,6 +677,12 @@ const VerisonUpdate = styled.div`
 `;
 
 const TeamBuilderWrapper = styled.div`
+  max-width: 1200px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  display: block;
+  position: relative;
   color: white;
   min-height: 100vh;
   padding-bottom: 50px;

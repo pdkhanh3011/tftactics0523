@@ -1,10 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
-
-const web_name = "TFTactician";
+const web_name = "DTCL Plus";
 
 export default function Footer() {
   return (
@@ -133,6 +130,7 @@ const FooterWrapper = styled.div`
         align-content: center;
         justify-content: center;
         align-items: center;
+        position: relative;
         .version {
           margin-left: 10px;
           .value {
@@ -149,7 +147,38 @@ const FooterWrapper = styled.div`
     }
   }
   @media (max-width: 1024px) {
+    margin-top: 30px;
     padding-left: 45px;
     padding-right: 45px;
+  }
+  @media only screen and (max-width: 1024px) {
+    .container .footer-links {
+      flex-wrap: wrap;
+    }
+    .container .footer-links .language-btn {
+      margin-top: 20px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .container .footer-links {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .container .footer-links .language-btn {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 520px) {
+    .container .footer-links {
+      flex-direction: column;
+    }
+    .container .footer-links a:first-child {
+      margin-top: 0;
+    }
+    .container .footer-links a {
+      margin-top: 10px;
+    }
   }
 `;

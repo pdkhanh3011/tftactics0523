@@ -1,11 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
-
-// Website name here
-const web_name = "TFTactician";
+const web_name = "DTCL Plus";
 
 function HomePage() {
   return (
@@ -61,7 +57,7 @@ function HomePage() {
               alt="comps-crop"
             />
           </div>
-          <div className="col-12 col-lg-6 app-image right">
+          <div className="col-12 col-lg-6 app-image right app-info">
             <h2 className="text-white fw-bold">Xây dựng đội hình</h2>
             <p className="grey" style={{ maxWidth: "450px" }}>
               Xây dựng những đội hình mạnh hơn bằng cách lên kế hoạch cho đội
@@ -74,7 +70,7 @@ function HomePage() {
 
       <div className="col-12 home-app">
         <div className="row">
-          <div className="col-12 col-lg-6 app-image left">
+          <div className="col-12 col-lg-6 app-image left app-info">
             <h2 className="text-white fw-bold">Truy tìm anh hùng</h2>
             <p className="grey" style={{ maxWidth: "450px" }}>
               Tra cứu danh sách các tướng DTCL, chỉ số cơ bản, kỹ năng, Tộc/Hệ
@@ -114,7 +110,7 @@ function HomePage() {
               alt="item-crop"
             />
           </div>
-          <div className="col-12 col-lg-6 app-image right">
+          <div className="col-12 col-lg-6 app-image right app-info">
             <h2 className="text-white fw-bold">Lựa chọn trang bị chuẩn</h2>
             <p className="grey" style={{ maxWidth: "450px" }}>
               Tìm những món đồ, trang bị chuẩn dành cho những vị tướng DTCL. Tra
@@ -124,8 +120,8 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="row dark">
-        <div className="container">
+      <div className="row dark" id="technologies">
+        <div className="container" id="tech-container">
           <div className="col-12 home-app features">
             <div className="row">
               <div className="col-12 features-title">
@@ -197,7 +193,7 @@ function HomePage() {
 
       <div className="col-12 home-app no-margin-bottom">
         <div className="row">
-          <div className="col-12 col-lg-6 app-info">
+          <div className="col-12 col-lg-6 app-info contact">
             <h2>Liên hệ</h2>
             <p>
               Nếu bạn gặp phải bất kỳ sự cố hoặc lỗi nào trong quá trình trải
@@ -232,22 +228,22 @@ function HomePage() {
               />{" "}
             </a>
             <a
-              href="https://facebook.com/ch1mmm"
+              href="https://www.facebook.com/profile.php?id=100008397931030"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Liên hệ | Facebook (Hoàng Xuân Lâm)
+              Liên hệ | Facebook (Phan Đình Khánh)
               <img
                 src="https://rerollcdn.com/home/arrow-link.svg"
                 alt="arrow-link"
               />{" "}
             </a>
             <a
-              href="https://www.facebook.com/profile.php?id=100008397931030"
+              href="https://facebook.com/ch1mmm"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Liên hệ | Facebook (Phan Đình Khánh)
+              Liên hệ | Facebook (Hoàng Xuân Lâm)
               <img
                 src="https://rerollcdn.com/home/arrow-link.svg"
                 alt="arrow-link"
@@ -313,6 +309,7 @@ const Banner = styled.div`
 
 const Landing = styled.div`
   min-height: 1000px;
+  max-width: 100vw;
   background-color: #0d202b;
   @media (max-width: 1024px) {
     padding-left: 45px;
@@ -363,6 +360,7 @@ const HomePageWrap = styled.div`
     content: "";
     background-image: url("https://cdn.gametv.vn/news_media/image/TFT-Set-8_0x0_1678155246.png");
     background-size: cover;
+    background-position: center;
     height: 100%;
     width: 100%;
     position: absolute;
@@ -731,5 +729,69 @@ const HomePageWrap = styled.div`
 
   .popup-cost svg {
     color: #fff !important;
+  }
+  @media only screen and (max-width: 1024px) {
+    .home-app .app-image.left {
+      padding: 0;
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+    .home-app .app-info {
+      order: -1;
+      justify-content: center !important;
+      margin-bottom: 10px;
+    }
+    .home-app .app-image.left {
+      padding: 0;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-wrap: nowrap;
+      align-content: center;
+    }
+    .col-12.home-app.features {
+      justify-content: center;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .home-app .app-image.left {
+      padding: 0;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      flex-wrap: nowrap;
+    }
+    .home-app .app-info {
+      order: -1;
+      justify-content: center !important;
+      margin-bottom: 10px;
+    }
+    .home-app .app-image.right {
+      padding: 0;
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+    #tech-container .home-app .row {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .home-app .app-info h2 {
+      text-align: center;
+    }
+    .contact {
+      padding: 0 50px !important;
+    }
   }
 `;
