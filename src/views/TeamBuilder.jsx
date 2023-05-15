@@ -687,6 +687,8 @@ const TeamBuilderWrapper = styled.div`
   min-height: 100vh;
   padding-bottom: 50px;
   padding-top: 45px;
+  max-width: 1200px;
+  margin: 0 auto;
   .error {
     text-align: center;
     margin-left: 20px;
