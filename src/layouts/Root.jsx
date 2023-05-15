@@ -1,7 +1,7 @@
 import Header from "layouts/Header";
 import TopNavigation from "layouts/TopNavigation";
 import Content from "layouts/Content";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import Footer from "layouts/Footer";
@@ -10,8 +10,6 @@ import { getData } from "store/slices/apiSlice";
 import { useSelector } from "react-redux";
 
 function RootLayout() {
-  const location = useLocation();
-  const pathName = location.pathname;
   const [isOpenNaviagtion, setIsOpenNaviagtion] = useState(false);
   const { isLoading } = useSelector((state) => state.api);
   const dispatch = useDispatch();
@@ -30,9 +28,7 @@ function RootLayout() {
         isOpenNaviagtion={isOpenNaviagtion}
         hanleClickLink={() => setIsOpenNaviagtion(false)}
       />
-      <Content>
-        {pathName === "/" ? <Outlet /> : isLoading || <Outlet />}
-      </Content>
+      <Content>{isLoading || <Outlet />}</Content>
       <Footer />
     </RootLayoutWrap>
   );
