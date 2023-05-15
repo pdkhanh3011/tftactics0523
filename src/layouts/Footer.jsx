@@ -1,9 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
-
 const web_name = "DTCL Plus";
 
 export default function Footer() {
@@ -156,32 +153,32 @@ const FooterWrapper = styled.div`
   }
   @media only screen and (max-width: 1024px) {
     .container .footer-links {
-      flex-wrap: wrap !important;
+      flex-wrap: wrap;
     }
     .container .footer-links .language-btn {
-      margin-top: 20px !important;
+      margin-top: 20px;
     }
   }
-  
+
   @media only screen and (max-width: 768px) {
     .container .footer-links {
-      flex-wrap: wrap !important;
-      justify-content: space-between !important;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
     .container .footer-links .language-btn {
-      display: none !important;
+      display: none;
     }
   }
-  
+
   @media only screen and (max-width: 520px) {
     .container .footer-links {
-      flex-direction: column !important;
+      flex-direction: column;
     }
     .container .footer-links a:first-child {
-      margin-top: 0 !important;
+      margin-top: 0;
     }
     .container .footer-links a {
-      margin-top: 10px !important;
+      margin-top: 10px;
     }
   }
 `;

@@ -1,10 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
-
-// Website name here
 const web_name = "DTCL Plus";
 
 function HomePage() {
@@ -734,7 +730,7 @@ const HomePageWrap = styled.div`
   .popup-cost svg {
     color: #fff !important;
   }
-    @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1024px) {
     .home-app .app-image.left {
       padding: 0;
       align-items: center;

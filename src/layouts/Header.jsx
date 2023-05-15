@@ -10,7 +10,7 @@ import { getData } from "store/slices/apiSlice";
 
 import { Link } from "react-router-dom";
 
-import Logo from './logo/logo.png';
+import Logo from "./logo/logo.png";
 
 const web_name = "DTCL Plus";
 
@@ -25,7 +25,9 @@ function Header(props) {
       <div className="wrapper">
         <div className="icon-version">
           <div className="icon" title={web_name}>
-            <Link to="/"><img alt={web_name} src={Logo}/></Link>
+            <Link to="/">
+              <img alt={web_name} src={Logo} />
+            </Link>
           </div>
           <div className="version">
             <SelectDropdown
@@ -118,15 +120,15 @@ const HeaderWrap = styled.div`
     }
   }
   @media only screen and (max-width: 520px) {
-    padding: 0 !important;
+    padding: 0;
     .icon-version {
-      margin: 0 20px !important;
+      margin: 0 20px;
     }
     .search-bar {
-      display: none !important;
+      display: none;
     }
     .wrapper .navigation-btn {
-      margin: 0 20px !important;
+      margin: 0 20px;
     }
   }
 `;

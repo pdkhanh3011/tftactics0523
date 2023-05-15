@@ -56,7 +56,7 @@ const RootLayoutWrap = styled.div`
   }
   @media only screen and (max-width: 520px) {
     .my-content {
-      font-size: 14px !important;
+      font-size: 14px;
     }
   }
 `;
