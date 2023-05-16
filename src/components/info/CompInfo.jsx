@@ -412,6 +412,12 @@ const TeamCompWrap = styled.div`
         top: 50%;
         background-color: #0d202b;
         transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
         .legend-down {
           transform: translateY(-3px) translateX(-2px);
         }

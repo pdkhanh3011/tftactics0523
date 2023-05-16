@@ -1,6 +1,5 @@
 import MainLayout from "layouts/MainLayout";
 import styled from "styled-components";
-import SelectDropDown from "components/common/SelectDropdown";
 import SearchOrigin from "components/common/SearchOrigin";
 import { useState, useEffect, useCallback } from "react";
 import Button from "components/common/Button";
@@ -185,7 +184,7 @@ function TeamComps() {
     <TeamCompsWrapper id="item-builder">
       <MainLayout
         sideContent={
-          <ItemBulderSideContent>
+          <ItemBulderSideContent className="filter-teams">
             <div className="champions-side-title">
               <span className="title-name">Filter</span>
               <button onClick={() => resetFilter()}>Reset</button>
@@ -270,14 +269,6 @@ function TeamComps() {
           <Title className="title">
             <div className="title-1">
               <div className="name">TFT Meta Team Comps Tier List</div>
-              <SelectDropDown
-                dropDownItems={[
-                  { text: "Set 7.5", value: "7.5", isSelected: false },
-                  { text: "Set 8.5", value: "8.5", isSelected: true },
-                ]}
-                placeholder="set 8.5"
-                className="dropdown"
-              />
             </div>
             <div className="title-2">
               <SearchOrigin
@@ -388,6 +379,11 @@ const TeamCompsWrapper = styled.div`
   .content {
     padding-left: 30px;
   }
+  @media only screen and (max-width: 768px) {
+    .content {
+      padding-left: 0;
+    }
+  }
 `;
 
 const Title = styled.div`
@@ -427,6 +423,12 @@ const Title = styled.div`
       .search {
         width: 100%;
       }
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .title-1 {
+      display: block;
+      text-align: center;
     }
   }
 `;

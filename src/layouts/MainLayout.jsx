@@ -39,8 +39,8 @@ const VerisonUpdate = styled.div`
   position: relative;
   font-size: 21px;
   background: #102531;
-  background-image: url(https://rerollcdn.com/update/set-7-5-update-bg.png);
-  background-position: center 600px;
+  background-image: url(https://rerollcdn.com/update/set-8-5-update-bg.png);
+  background-position: center;
   background-size: cover;
   border: 1px solid #17313a;
   width: 100%;
@@ -76,9 +76,16 @@ const Wrap = styled.div`
   grid-template-columns: 27.8% auto;
   grid-template-rows: auto;
   padding-bottom: 30px;
+  @media only screen and (max-width: 768px) {
+    display: block;
+  }
 `;
 
 const Navigation = styled.div`
   border-right: 1px solid #17313a;
   padding-right: 30px;
+  @media only screen and (max-width: 768px) {
+    display: none;
+    border: none;
+  }
 `;

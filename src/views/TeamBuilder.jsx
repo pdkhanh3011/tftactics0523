@@ -645,8 +645,8 @@ const VerisonUpdate = styled.div`
   position: relative;
   font-size: 21px;
   background: #102531;
-  background-image: url(https://rerollcdn.com/update/set-7-5-update-bg.png);
-  background-position: center 600px;
+  background-image: url(https://rerollcdn.com/update/set-8-5-update-bg.png);
+  background-position: center;
   background-size: cover;
   border: 1px solid #17313a;
   width: 100%;
@@ -773,6 +773,12 @@ const TeamBuilderWrapper = styled.div`
     .team-builder {
       display: grid;
       grid-template-columns: 200px auto;
+      @media only screen and (max-width: 1040px) {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
       .team-builder-drag {
         .team-builder-drag-line-1 {
           display: flex;
@@ -786,10 +792,19 @@ const TeamBuilderWrapper = styled.div`
             align-items: center;
             justify-content: center;
             margin-bottom: 50px;
+            @media only screen and (max-width: 1150px) {
+              scale: 90%;
+            }
           }
           .team-builder-drag-recipe {
             flex-grow: 1;
             padding-left: 50px;
+            @media only screen and (max-width: 1150px) {
+              padding-top: 10px;
+            }
+            @media only screen and (max-width: 1135px) {
+              display: none;
+            }
             .team-builder-drag-recipe-item {
               max-width: 250px;
               padding: 5px;
@@ -812,9 +827,11 @@ const TeamBuilderWrapper = styled.div`
           }
         }
         .team-builder-drag-line-2 {
-          display: flex;
           display: grid;
           grid-template-columns: calc(68% + 2px) auto;
+          @media only screen and (max-width: 768px) {
+            display: block;
+          }
           .team-builder-drag-champions {
             padding-left: 20px;
             display: flex;
@@ -849,6 +866,10 @@ const TeamBuilderWrapper = styled.div`
             }
           }
           .team-builder-drag-items {
+            @media only screen and (max-width: 768px) {
+              margin-top: 30px;
+              padding: 0 20px;
+            }
             .team-builder-drag-item-wrapper {
               display: flex;
               justify-content: center;

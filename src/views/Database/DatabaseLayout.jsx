@@ -75,9 +75,9 @@ function DatabaseLayout() {
               </Routes>
               <SelectDropDown
                 dropDownItems={[
-                { text: "Set 7.5", value: "7.5", isSelected: false },
-                { text: "Set 8.5", value: "8.5", isSelected: true },
-              ]}
+                  { text: "Set 7.5", value: "7.5", isSelected: false },
+                  { text: "Set 8.5", value: "8.5", isSelected: true },
+                ]}
                 placeholder="set 8.5"
                 className="dropdown"
               />

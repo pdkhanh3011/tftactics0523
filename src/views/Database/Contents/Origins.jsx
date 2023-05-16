@@ -76,7 +76,7 @@ function Origins() {
                           {championsData
                             .filter((champion) =>
                               champion.champion_origin.includes(
-                                item.synergy_name.toLowerCase()
+                                item.synergy_name
                               )
                             )
                             .map((a) => {

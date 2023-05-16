@@ -13,9 +13,13 @@ export default Content;
 const ContentWrap = styled.div`
   min-height: 100vh;
   background-color: #0d202b;
-  @media (max-width: 1024px) {
+  @media only screen and (max-width: 1230px) {
     padding-left: 45px;
     padding-right: 45px;
+  }
+  @media only screen and (max-width: 768px) {
+    padding-left: 35px;
+    padding-right: 35px;
   }
   @media only screen and (max-width: 520px) {
     padding-left: 30px;

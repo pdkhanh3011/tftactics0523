@@ -38,4 +38,5 @@ const StatusWrap = styled.div`
   font-size: ${(props) => props["font-size"]};
   font-weight: 600;
   text-transform: uppercase;
+  margin-top: -3px !important;
 `;

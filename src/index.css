@@ -40,45 +40,11 @@ a {
   padding: 0;
   margin: 0;
   font-family: "sofia-pro",sans-serif;
-}
-
-ol, p, ul {
   font-size: 16px;
-  font-weight: 400;
-}
-p {
-  color: #88a0a7;
-  line-height: 2em;
-  margin: 0 0 20px;
-  max-width: 700px;
 }
 
-iframe {
-  height: 80vh;
-  width: 100%;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  position: relative;
-  display: block;
-}
-
-#root-layout {
-  background-color: #0D202B;
-}
-
-.no-max-width {
-  max-width: none;
-}
-
-/* Control user drag */
-
-.allow-drag {
-  user-select: text;
-  -moz-user-select: text;
-  -webkit-user-drag: text;
-  -webkit-user-select: text;
-  -ms-user-select: text;
+ul {
+  padding-left: 0;
 }
 
 /* Disable unwanted user drag */
