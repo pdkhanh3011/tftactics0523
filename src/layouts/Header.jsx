@@ -10,7 +10,7 @@ import { getData } from "store/slices/apiSlice";
 
 import { Link } from "react-router-dom";
 
-import Logo from "./logo/logo.png";
+import Logo from "assets/icons/logo.png";
 
 const web_name = "DTCL Plus";
 
