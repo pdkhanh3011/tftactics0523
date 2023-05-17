@@ -11,7 +11,6 @@ import {
 import { useLoaderData } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
-import SelectDropdown from "components/common/SelectDropdown";
 import ItemInfo from "components/info/ItemInfo";
 import SearchCard from "components/common/SearchCard";
 import Switch from "components/common/Switch";
@@ -393,15 +392,6 @@ export default function TeamBuilder() {
           <div className="team-builder-title-info-name">
             <span>TFT Team Builder</span>
           </div>
-          <div className="team-builder-title-info-version">
-            <SelectDropdown
-              dropDownItems={[
-                { text: "Set 7.5", value: "7.5", isSelected: false },
-                { text: "Set 8.5", value: "8.5", isSelected: true },
-              ]}
-              placeholder={"set 8.5"}
-            />
-          </div>
         </div>
         <div className="team-builder-title-filter">
           <div
@@ -700,6 +690,7 @@ const TeamBuilderWrapper = styled.div`
   }
   .team-builder-title {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: 0 0 30px 0;
     border-bottom: 1px solid #17313a;
@@ -708,13 +699,18 @@ const TeamBuilderWrapper = styled.div`
       align-items: center;
       .team-builder-title-info-name {
         margin-right: 10px;
-      }
-      .team-builder-title-info-version {
+        span {
+          font-size: 21px;
+          font-weight: 600;
+        }
       }
     }
     .team-builder-title-filter {
       display: flex;
       align-items: center;
+      @media only screen and (max-width: 480px) {
+        flex-direction: column;
+      }
       .team-builder-title-filter-partial-traits {
         margin-right: 10px;
         display: flex;
@@ -776,13 +772,23 @@ const TeamBuilderWrapper = styled.div`
       @media only screen and (max-width: 1040px) {
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
       }
       .team-builder-drag {
+        @media only screen and (max-width: 1040px) {
+          display: contents;
+        }
         .team-builder-drag-line-1 {
           display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
           height: max-content;
+          width: max-content;
+          @media only screen and (max-width: 1040px) {
+            align-self: center;
+          }
           .team-builder-drag-field {
             height: min-content;
             width: 100%;
@@ -792,8 +798,19 @@ const TeamBuilderWrapper = styled.div`
             align-items: center;
             justify-content: center;
             margin-bottom: 50px;
-            @media only screen and (max-width: 1150px) {
-              scale: 90%;
+            @media only screen and (max-width: 1040px) {
+              position: relative;
+              transform: scale(0.9);
+              left: -15px;
+            }
+            @media only screen and (max-width: 660px) {
+              transform: scale(0.75);
+            }
+            @media only screen and (max-width: 500px) {
+              transform: scale(0.6);
+            }
+            @media only screen and (max-width: 420px) {
+              transform: scale(0.5);
             }
           }
           .team-builder-drag-recipe {
