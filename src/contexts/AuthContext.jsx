@@ -3,7 +3,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
-  signOut
+  signOut,
 } from "firebase/auth";
 import { useSelector } from "react-redux";
 
@@ -15,9 +15,12 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
   const selectedVersion = useSelector((state) => state.version.versionName);
-  const allFirebaseApps = useSelector((state) => state.firebase.allFirebaseApps);
+  const allFirebaseApps = useSelector(
+    (state) => state.firebase.allFirebaseApps
+  );
   const auth = allFirebaseApps[selectedVersion]?.auth;
   const [currentUser, setCurrentUser] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   function signup(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -34,6 +37,7 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const unsubcribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
+      setIsLoading(false);
     });
     return unsubcribe;
   }, []);
@@ -42,8 +46,12 @@ export function AuthProvider({ children }) {
     currentUser,
     signup,
     signout,
-    signin
+    signin,
   };
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={value}>
+      {isLoading || children}
+    </AuthContext.Provider>
+  );
 }

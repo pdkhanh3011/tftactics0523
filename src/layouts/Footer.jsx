@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
-const web_name = "DTCL Plus";
+import { WEB_NAME } from "config/constant";
 
 export default function Footer() {
   return (
@@ -43,14 +42,14 @@ export default function Footer() {
         </div>
         <div className="divider footer"></div>
         <p className="footer-about">
-          {web_name} is not endorsed by Riot Games and does not reflect the
+          {WEB_NAME} is not endorsed by Riot Games and does not reflect the
           views or opinions of Riot Games or anyone officially involved in
           producing or managing Riot Games properties. Riot Games and all
           associated properties are trademarks or registered trademarks of Riot
           Games, Inc.
         </p>
         <p className="footer-copyright">
-          © {web_name} {new Date().getFullYear()}
+          © {WEB_NAME} {new Date().getFullYear()}
         </p>
       </div>
     </FooterWrapper>

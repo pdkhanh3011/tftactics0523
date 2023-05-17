@@ -37,23 +37,24 @@ const apiSlice = createSlice({
     isLoading: false,
   },
   reducers: {},
-  extraReducers: {
-    [getData.pending]: (state, { payload }) => {
-      state.isLoading = true;
-    },
-    [getData.fulfilled]: (state, { payload }) => {
-      state.isLoading = false;
-      state.championsData = payload[0];
-      state.synergysData = payload[1];
-      state.itemsData = payload[2];
-      state.teamcompsData = payload[3];
-      state.isSuccess = true;
-    },
-    [getData.rejected]: (state, { payload }) => {
-      state.message = payload;
-      state.isLoading = false;
-      state.isSuccess = false;
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getData.pending, (state, { payload }) => {
+        state.isLoading = true;
+      })
+      .addCase(getData.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.championsData = payload[0];
+        state.synergysData = payload[1];
+        state.itemsData = payload[2];
+        state.teamcompsData = payload[3];
+        state.isSuccess = true;
+      })
+      .addCase(getData.rejected, (state, { payload }) => {
+        state.message = payload;
+        state.isLoading = false;
+        state.isSuccess = false;
+      });
   },
 });
 

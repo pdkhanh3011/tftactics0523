@@ -7,12 +7,11 @@ import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useDispatch } from "react-redux";
 import { updateVersion } from "store/slices/versionSlice";
 import { getData } from "store/slices/apiSlice";
+import { WEB_NAME } from "config/constant";
 
 import { Link } from "react-router-dom";
 
 import Logo from "assets/icons/logo.png";
-
-const web_name = "DTCL Plus";
 
 function Header(props) {
   const dispatch = useDispatch();
@@ -24,9 +23,9 @@ function Header(props) {
     <HeaderWrap id="root-header">
       <div className="wrapper">
         <div className="icon-version">
-          <div className="icon" title={web_name}>
+          <div className="icon" title={WEB_NAME}>
             <Link to="/">
-              <img alt={web_name} src={Logo} />
+              <img alt={WEB_NAME} src={Logo} />
             </Link>
           </div>
           <div className="version">
