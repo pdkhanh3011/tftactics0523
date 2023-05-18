@@ -62,6 +62,10 @@ const VerisonUpdate = styled.div`
     font-weight: 600;
     font-size: 21px;
     margin-bottom: 7px;
+    @media only screen and (max-width: 480px) {
+      font-size: 18px;
+      text-align: center;
+    }
   }
   .update-subtitle {
     font-size: 16px;
@@ -76,7 +80,7 @@ const Wrap = styled.div`
   grid-template-columns: 27.8% auto;
   grid-template-rows: auto;
   padding-bottom: 30px;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 840px) {
     display: block;
   }
 `;
@@ -84,7 +88,7 @@ const Wrap = styled.div`
 const Navigation = styled.div`
   border-right: 1px solid #17313a;
   padding-right: 30px;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 840px) {
     display: none;
     border: none;
   }

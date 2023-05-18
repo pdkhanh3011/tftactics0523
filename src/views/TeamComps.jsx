@@ -335,6 +335,13 @@ const TeamCompsMainContent = styled.div`
     justify-content: space-between;
     margin-bottom: 10px;
     .teamcomps-title-patch {
+      @media only screen and (max-width: 1024px) {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      @media only screen and (max-width: 415px) {
+        margin-bottom: 0;
+      }
     }
     .teamcomps-title-patch-btn {
       color: #88a0a7;
@@ -346,19 +353,26 @@ const TeamCompsMainContent = styled.div`
       :nth-child(1) {
         margin-right: 10px;
       }
+      @media only screen and (max-width: 415px) {
+        :nth-child(1), :nth-child(2) {
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+      }
     }
     .teamcomps-title-tier {
       display: flex;
       align-items: center;
+      @media only screen and (max-width: 415px) {
+        flex-direction: column;
+      }
     }
   }
-  @media (max-width: 1024px) {
+  @media only screen and (max-width: 1024px) {
     padding-top: 20px;
     .teamcomps-title {
       flex-wrap: wrap;
       .teamcomps-title-patch {
-        width: 100%;
-        margin-bottom: 10px;
         #defaul-button {
           width: 100%;
           justify-content: center;
@@ -406,6 +420,9 @@ const Title = styled.div`
     .search {
       border-radius: 0%;
       width: 300px;
+      @media only screen and (max-width: 360px) {
+        display: contents;
+      }
     }
   }
   @media (max-width: 1024px) {

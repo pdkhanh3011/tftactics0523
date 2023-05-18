@@ -236,7 +236,7 @@ const TeamComp = memo((props) => {
               <div className="line-3-item-title">
                 <span>Positioning</span>
               </div>
-              <div className="line-3-item-title">
+              <div className="line-3-item-title" id="hexagon-mini">
                 <Suspense>
                   <MiniMap members={props.team_detail.members} />
                 </Suspense>
@@ -303,12 +303,29 @@ const TeamCompWrap = styled.div`
         font-size: 13px;
         font-weight: 400;
       }
+      .team-comps-item-line-3-item:nth-child(2) div {
+      @media only screen and (max-width: 660px) {
+        position: relative;
+        left: 15px;
+      }
+    }
+    @media only screen and (max-width: 1024px) {
+      margin: 0 auto;
+      width: max-content;
+    }
     }
     .team-comps-item-line-3 {
+      @media only screen and (max-width: 660px) {
+        display: flex;
+        flex-direction: column;
+      }
       display: grid;
       border-top: 1px solid #17313a;
       grid-template-columns: repeat(2, 1fr);
       .team-comps-item-line-3-item {
+        @media only screen and (max-width: 660px) {
+          border-bottom: 1px solid #17313a;
+        }
         padding: 10px;
         display: flex;
         flex-direction: column;
@@ -355,10 +372,17 @@ const TeamCompWrap = styled.div`
       }
     }
     .team-comps-item-line-2 {
+      @media only screen and (max-width: 660px) {
+        display: flex;
+        flex-direction: column;
+      }
       display: grid;
       border-top: 1px solid #17313a;
       grid-template-columns: repeat(3, 1fr);
       .team-comps-item-line-2-item {
+        @media only screen and (max-width: 660px) {
+          border-bottom: 1px solid #17313a;
+        }
         padding: 10px;
         display: flex;
         flex-direction: column;
@@ -400,6 +424,10 @@ const TeamCompWrap = styled.div`
       }
     }
     .team-comps-item-line-1 {
+      @media only screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+      }
       display: grid;
       grid-template-columns: 30% 67% 3%;
       position: relative;
@@ -418,6 +446,12 @@ const TeamCompWrap = styled.div`
         align-content: center;
         justify-content: center;
         align-items: center;
+        @media only screen and (max-width: 768px) {
+          top: 20%;
+        }
+        @media only screen and (max-width: 541px) {
+          top: 15%;
+        }
         .legend-down {
           transform: translateY(-3px) translateX(-2px);
         }
@@ -469,6 +503,10 @@ const TeamCompWrap = styled.div`
       .item-line-1-btn {
         display: flex;
         align-items: center;
+        @media (max-width: 768px) {
+          display: block;
+          margin: 0 auto;
+        }
         .open-icon {
           cursor: pointer;
           color: #88a0a7;
@@ -479,6 +517,18 @@ const TeamCompWrap = styled.div`
   @media (max-width: 1024px) {
     .item-line-1-member {
       flex-wrap: wrap;
+      margin: 0 10px;
     }
   }
+  #hexagon-mini {
+    @media only screen and (max-width: 660px) {
+      position: relative;
+      left: 15px;
+    }
+    @media only screen and (max-width: 365px) {
+      transform: scale(0.85);
+    }
+    @media only screen and (max-width: 350px) {
+      transform: scale(0.7);
+    }
 `;
