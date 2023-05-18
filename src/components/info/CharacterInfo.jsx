@@ -206,6 +206,10 @@ const CharacterInfoWrap = styled.div`
       }
     }
     .popup {
+      @media only screen and (max-width: 550px) {
+        left: -300%;
+        top: -200%;
+      }
       z-index: 1000;
       display: none;
       position: absolute;

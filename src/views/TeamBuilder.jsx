@@ -658,6 +658,10 @@ const VerisonUpdate = styled.div`
     font-weight: 600;
     font-size: 21px;
     margin-bottom: 7px;
+    @media only screen and (max-width: 480px) {
+      font-size: 18px;
+      text-align: center;
+    }
   }
   .update-subtitle {
     font-size: 16px;
@@ -694,6 +698,9 @@ const TeamBuilderWrapper = styled.div`
     justify-content: space-between;
     padding: 0 0 30px 0;
     border-bottom: 1px solid #17313a;
+    @media only screen and (max-width: 417px) {
+      justify-content: center;
+    }
     .team-builder-title-info {
       display: flex;
       align-items: center;
@@ -716,6 +723,11 @@ const TeamBuilderWrapper = styled.div`
         display: flex;
         cursor: pointer;
         align-items: center;
+      }
+      .team-builder-title-filter-clear-team {
+        @media only screen and (max-width: 480px) {
+          margin: 10px 0;
+        }
       }
       .team-builder-title-filter-clear-team,
       .team-builder-title-filter-share {
@@ -856,6 +868,9 @@ const TeamBuilderWrapper = styled.div`
             padding-right: 20px;
             .team-builder-drag-champion-wrapper {
               padding: 5px 10px;
+              @media only screen and (max-width: 480px) {
+                padding: 3px 5px;
+              }
             }
             .hidden {
               .avatar-champion {
