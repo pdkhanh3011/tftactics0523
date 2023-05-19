@@ -146,7 +146,6 @@ const FooterWrapper = styled.div`
     }
   }
   @media (max-width: 1024px) {
-    margin-top: 30px;
     padding-left: 45px;
     padding-right: 45px;
   }

@@ -390,6 +390,9 @@ const TeamCompWrap = styled.div`
         .line-2-item-carousel {
           display: flex;
           align-items: center;
+          @media only screen and (max-width: 660px) {
+            margin-bottom: 15px;
+          }
           .carousel-item-wrapper {
             position: relative;
             .carousel-sub-item {
@@ -495,8 +498,16 @@ const TeamCompWrap = styled.div`
           }
           .member-name {
             margin-top: 3px;
-            color: #88a0a7;
             font-size: 11px;
+            width: 45px;
+            min-height: 15px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: center;
+            color: #88a0a7;
+            line-height: 1.3em;
+            transition: all .3s;
           }
         }
       }
@@ -524,11 +535,14 @@ const TeamCompWrap = styled.div`
     @media only screen and (max-width: 660px) {
       position: relative;
       left: 15px;
+      margin-bottom: 20px;
     }
     @media only screen and (max-width: 365px) {
       transform: scale(0.85);
+      margin-bottom: 20px;
     }
     @media only screen and (max-width: 350px) {
       transform: scale(0.7);
+      margin: 0;
     }
 `;
