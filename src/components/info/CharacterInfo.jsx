@@ -229,6 +229,7 @@ const CharacterInfoWrap = styled.div`
       border: 1px solid #17313a;
       .popup-info {
         display: ${(props) => (props.loadDone === true ? "flex" : "none")};
+        background-color: #102531;
         .popup-avatar {
           padding: 10px;
           display: flex;
