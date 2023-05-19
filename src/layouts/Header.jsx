@@ -7,12 +7,11 @@ import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useDispatch } from "react-redux";
 import { updateVersion } from "store/slices/versionSlice";
 import { getData } from "store/slices/apiSlice";
+import { WEB_NAME } from "config/constant";
 
 import { Link } from "react-router-dom";
 
-import Logo from './logo/logo.png';
-
-const web_name = "DTCL Plus";
+import Logo from "assets/icons/logo.png";
 
 function Header(props) {
   const dispatch = useDispatch();
@@ -24,8 +23,10 @@ function Header(props) {
     <HeaderWrap id="root-header">
       <div className="wrapper">
         <div className="icon-version">
-          <div className="icon" title={web_name}>
-            <Link to="/"><img alt={web_name} src={Logo}/></Link>
+          <div className="icon" title={WEB_NAME}>
+            <Link to="/">
+              <img alt={WEB_NAME} src={Logo} />
+            </Link>
           </div>
           <div className="version">
             <SelectDropdown
@@ -118,15 +119,15 @@ const HeaderWrap = styled.div`
     }
   }
   @media only screen and (max-width: 520px) {
-    padding: 0 !important;
+    padding: 0;
     .icon-version {
-      margin: 0 20px !important;
+      margin: 0 20px;
     }
     .search-bar {
-      display: none !important;
+      display: none;
     }
     .wrapper .navigation-btn {
-      margin: 0 20px !important;
+      margin: 0 20px;
     }
   }
 `;

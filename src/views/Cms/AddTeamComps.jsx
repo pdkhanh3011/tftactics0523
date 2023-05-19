@@ -261,7 +261,6 @@ export default AddSynergys;
 const AddOrigins = styled.div``;
 
 const Wrapper = styled.div`
-  padding-top: 50px;
   max-width: 1200px;
   margin: 0 auto;
 `;
