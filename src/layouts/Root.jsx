@@ -21,7 +21,7 @@ function RootLayout() {
   return (
     <RootLayoutWrap id="root-layout">
       <div className="my-content">
-        --- Tftactics clone use ReactJs, Firebase 13/05/2023 ---
+        --- Tftactics clone use ReactJs, Firebase 17/05/2023 ---
       </div>
       <Header
         hanleClickNavigationBtn={() => setIsOpenNaviagtion((pre) => !pre)}
@@ -56,7 +56,7 @@ const RootLayoutWrap = styled.div`
   }
   @media only screen and (max-width: 520px) {
     .my-content {
-      font-size: 14px !important;
+      font-size: 14px;
     }
   }
 `;

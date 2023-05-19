@@ -1,11 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
-
-// Website name here
-const web_name = "DTCL Plus";
+import { WEB_NAME } from "config/constant";
 
 function HomePage() {
   return (
@@ -13,7 +8,7 @@ function HomePage() {
       <Landing className="col-12 home-header">
         <div className="background-header">
           <div className="text-header">
-            <h1 className="text-white text-center fw-bolder">{web_name}</h1>
+            <h1 className="text-white text-center fw-bolder">{WEB_NAME}</h1>
             <h3
               className="orange text-center fw-bold"
               style={{ margin: "10px" }}
@@ -205,7 +200,7 @@ function HomePage() {
               cho chúng mình biết bằng cách chọn một số liên kết phía dưới. Bọn
               mình luôn đánh giá cao ý kiến ​​đóng góp của bạn và sẽ phản hồi
               nhanh nhất có thể để giải quyết mọi vấn đề đã được báo cáo. Cảm ơn
-              bạn đã tham gia đóng góp để giúp cho {web_name} được hoàn thiện
+              bạn đã tham gia đóng góp để giúp cho {WEB_NAME} được hoàn thiện
               hơn!
             </p>
             <hr style={{ color: "#17313A", opacity: "1" }}></hr>
@@ -734,7 +729,7 @@ const HomePageWrap = styled.div`
   .popup-cost svg {
     color: #fff !important;
   }
-    @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1024px) {
     .home-app .app-image.left {
       padding: 0;
       align-items: center;
