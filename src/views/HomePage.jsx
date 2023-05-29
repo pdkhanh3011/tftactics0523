@@ -1,6 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { WEB_NAME } from "config/constant";
+import ChampionListImg from "assets/images/champion_list.png";
+import ChampionDetailImg from "assets/images/champion_detail.png";
+import ItemListPng from "assets/images/item_list.png";
+import ItemRecipePng from "assets/images/item_recipe.png";
+import TeamcompDetail from "assets/images/teamcomp_detail.png";
+import Teamcomp from "assets/images/teamcomp.png";
 
 function HomePage() {
   return (
@@ -45,13 +51,13 @@ function HomePage() {
           <div className="col-12 col-lg-6 app-image left">
             <img
               className="image-full"
-              src="https://scontent.fhan14-4.fna.fbcdn.net/v/t1.15752-9/341862417_1101244321266082_6763746593041229608_n.png?_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_ohc=JudyRlMU5qEAX-dgveo&_nc_oc=AQm7RZgRGEsv9ydgXK8e6fwn1L0DqvbJ5zg7hWyeu0MJKRHEfYdmDhbywDu85Zb74KsPotENNMYYS4Tm79c0sp6b&_nc_ht=scontent.fhan14-4.fna&oh=03_AdSvEMp9qlaXu1X-uJF8nGomCSVidF71xeg63rAnvQtlKQ&oe=6475E9C4"
+              src={Teamcomp}
               width={"65%"}
               alt="comps-full"
             />
             <img
               className="image-crop"
-              src="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.15752-9/341855635_1458277454914415_5727580885085758782_n.png?_nc_cat=100&ccb=1-7&_nc_sid=ae9488&_nc_ohc=ihjYrxH7WXUAX8q0-fX&_nc_ht=scontent.fhan14-2.fna&oh=03_AdTaBWUfZy62LkruUaMuYB2cetjSBRVp8DdHvpg_uHgTkg&oe=6475DB2B"
+              src={TeamcompDetail}
               width={"65%"}
               alt="comps-crop"
             />
@@ -79,13 +85,13 @@ function HomePage() {
           <div className="col-12 col-lg-6 app-image right">
             <img
               className="image-full"
-              src="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.15752-9/341831495_548417414133138_7003062662206718136_n.png?_nc_cat=108&ccb=1-7&_nc_sid=ae9488&_nc_ohc=RAHFDH0ijiQAX8IRbCt&_nc_ht=scontent.fhan14-2.fna&oh=03_AdTUgJAhY1rDltB8_x9SQsgMmEfHPyGSJ3aFmDsb9X9-NA&oe=6474A5A9"
+              src={ChampionListImg}
               width={"65%"}
               alt="list-full"
             />
             <img
               className="image-crop"
-              src="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.15752-9/341808132_781344967002089_4111522620184356945_n.png?_nc_cat=100&ccb=1-7&_nc_sid=ae9488&_nc_ohc=FetYNzB_RzsAX-aVCb5&_nc_oc=AQkI_wTrhYJsyPBkE4SkfedJKuj-mVtaQWzNpxfK3TtmT7IJl264pxZZyfDiGwVXqlugayiXkUoHv3wEWfDkQqA0&_nc_ht=scontent.fhan14-2.fna&oh=03_AdQHDh7v3R6GpLGVSWHPRE6USp8bmyYTmw8yRp-BFWRtMg&oe=64748C53"
+              src={ChampionDetailImg}
               width={"65%"}
               alt="champion-crop"
             />
@@ -98,13 +104,13 @@ function HomePage() {
           <div className="col-12 col-lg-6 app-image left">
             <img
               className="image-full"
-              src="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.15752-9/343904514_627313385920131_6790464048876253050_n.png?_nc_cat=108&ccb=1-7&_nc_sid=ae9488&_nc_ohc=O3ZZqxUMK0sAX9OYgml&_nc_ht=scontent.fhan14-2.fna&oh=03_AdTbBi5d1B816guZ06lm_yt2wpCLcevR2uedUE6S25q-nw&oe=6474BC02"
+              src={ItemListPng}
               width={"65%"}
               alt="list-full"
             />
             <img
               className="image-crop"
-              src="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/343849717_164387819911917_982670899922784349_n.png?_nc_cat=101&ccb=1-7&_nc_sid=ae9488&_nc_ohc=mOJJuBkMGUYAX_bzfAM&_nc_ht=scontent.fhan14-1.fna&oh=03_AdT6ZEJA84qun2jEGasGpZqkOeSG9Cpgy0K4hfNScmD5fA&oe=64749E5B"
+              src={ItemRecipePng}
               height={"85%"}
               alt="item-crop"
             />
