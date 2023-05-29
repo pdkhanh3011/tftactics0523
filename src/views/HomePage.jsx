@@ -226,28 +226,6 @@ function HomePage() {
                 alt="arrow-link"
               />{" "}
             </a>
-            <a
-              href="https://www.facebook.com/profile.php?id=100008397931030"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Liên hệ | Facebook (Phan Đình Khánh)
-              <img
-                src="https://rerollcdn.com/home/arrow-link.svg"
-                alt="arrow-link"
-              />{" "}
-            </a>
-            <a
-              href="https://facebook.com/ch1mmm"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Liên hệ | Facebook (Hoàng Xuân Lâm)
-              <img
-                src="https://rerollcdn.com/home/arrow-link.svg"
-                alt="arrow-link"
-              />{" "}
-            </a>
           </div>
           <div className="d-none d-lg-block col-6 app-image right">
             <img
