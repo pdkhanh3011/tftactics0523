@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const versionSlice = createSlice({
   name: "versionSlice",
   initialState: {
-    versionName: "set85",
+    versionName: localStorage.getItem("version") || "set85",
   },
   reducers: {
     updateVersion: (state, action) => {

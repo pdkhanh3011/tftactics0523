@@ -1,8 +1,19 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { WEB_NAME } from "config/constant";
+import { useTranslation } from "react-i18next";
+import SelectDropdown from "components/common/SelectDropdown";
+import { useSelector } from "react-redux";
 
 export default function Footer() {
+  const { i18n } = useTranslation();
+  const { lang } = useSelector((state) => state.localStorage);
+
+  function selectVersion(value) {
+    localStorage.setItem("lang", value);
+    i18n.changeLanguage(value);
+  }
+
   return (
     <FooterWrapper>
       <div className="container">
@@ -30,12 +41,17 @@ export default function Footer() {
             Báo lỗi
           </a>
           <div className="language-btn">
-            Ngôn ngữ
+            <span className="language-btn-text">Ngôn ngữ</span>
             <div className="version">
               <div id="language-select">
-                <div className="value">
-                  <span>Tiếng Việt</span>
-                </div>
+                <SelectDropdown
+                  dropDownItems={[
+                    { text: "English", value: "en", isSelected: lang === "en" },
+                    { text: "Tiếng việt", value: "vi", isSelected: lang === "vi" },
+                  ]}
+                  handleSelect={selectVersion}
+                  className="version-dropdown"
+                />
               </div>
             </div>
           </div>
@@ -163,9 +179,6 @@ const FooterWrapper = styled.div`
       flex-wrap: wrap;
       justify-content: space-between;
     }
-    .container .footer-links .language-btn {
-      display: none;
-    }
   }
 
   @media only screen and (max-width: 520px) {
@@ -177,6 +190,11 @@ const FooterWrapper = styled.div`
     }
     .container .footer-links a {
       margin-top: 10px;
+    }
+    .container .footer-links .language-btn {
+      .language-btn-text {
+        display: none;
+      }
     }
   }
 `;

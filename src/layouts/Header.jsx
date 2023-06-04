@@ -8,14 +8,18 @@ import { useDispatch } from "react-redux";
 import { updateVersion } from "store/slices/versionSlice";
 import { getData } from "store/slices/apiSlice";
 import { WEB_NAME } from "config/constant";
+import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 
 import Logo from "assets/icons/logo.png";
 
 function Header(props) {
+  const { versionName } = useSelector((state) => state.version);
+
   const dispatch = useDispatch();
   function selectVersion(value) {
+    localStorage.setItem("version", value);
     dispatch(updateVersion(value));
     dispatch(getData());
   }
@@ -31,8 +35,16 @@ function Header(props) {
           <div className="version">
             <SelectDropdown
               dropDownItems={[
-                { text: "Set 7.5", value: "set7", isSelected: false },
-                { text: "Set 8.5", value: "set85", isSelected: true },
+                {
+                  text: "Set 7.5",
+                  value: "set7",
+                  isSelected: versionName === "set7",
+                },
+                {
+                  text: "Set 8.5",
+                  value: "set85",
+                  isSelected: versionName === "set85",
+                },
               ]}
               handleSelect={selectVersion}
               className="version-dropdown"

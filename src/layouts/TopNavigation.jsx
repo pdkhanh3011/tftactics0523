@@ -1,7 +1,10 @@
 import { NavLink, Link } from "react-router-dom";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 function TopNavigation(props) {
+  const { t } = useTranslation();
+
   return (
     <TopNavigationWrap
       id="header-navigation"
@@ -11,42 +14,42 @@ function TopNavigation(props) {
         <ul>
           <li>
             <NavLink onClick={() => props.hanleClickLink()} to="teamcomps" className="header-item">
-              Team Comps
+            {t('teamComps')}
             </NavLink>
           </li>
           <li>
             <NavLink onClick={() => props.hanleClickLink()} to="teambuilder" className="header-item">
-              Team Builder
+            {t('teamBuilder')}
             </NavLink>
           </li>
           <li>
             <NavLink onClick={() => props.hanleClickLink()} to="/champions" className="header-item">
-              Champions
+            {t('champions')}
             </NavLink>
           </li>
           <li>
             <NavLink onClick={() => props.hanleClickLink()} to="database" className="header-item">
-              Database
+              {t('database')}
             </NavLink>
           </li>
           <li>
             <NavLink onClick={() => props.hanleClickLink()} to="/metareport" className="header-item">
-              Meta Report
+              {t('metaReport')}
             </NavLink>
           </li>
           <li>
             <NavLink onClick={() => props.hanleClickLink()} to="itembuilder" className="header-item">
-              Item Builder
+              {t('itemBuilder')}
             </NavLink>
           </li>
           <li>
             <Link to="/" className="header-item">
-              Patch Notes
+              {t('patchNotes')}
             </Link>
           </li>
           <li>
             <Link to="/" className="header-item">
-              Tier Lists
+              {t('tierLists')}
             </Link>
           </li>
         </ul>
