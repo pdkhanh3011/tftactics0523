@@ -41,7 +41,7 @@ export default function PartialTraitsItem({
                     </span>
                     {index < lvls.length - 1 && (
                       <FontAwesomeIcon
-                        size="sm"
+                        size="xs"
                         className={
                           count >= Number(lvls[index + 1]) ? "active" : ""
                         }
@@ -69,12 +69,19 @@ const PartialTraitsItemWrap = styled.div`
   display: flex;
   align-items: center;
   background-color: red;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   border: 1px solid #17313a;
   font-size: 14px;
   background: #102531;
+  max-height: 46px;
+  height: 100%;
+  border-radius: 3px;
+  position: relative;
   .teambuilder-synergy-info > .wrapper > span {
     transform: translateX(5px);
+  }
+  .trait-info-name {
+    font-size: 14px;
   }
   .trait-info-level {
     display: flex;
@@ -84,8 +91,14 @@ const PartialTraitsItemWrap = styled.div`
     .non-active {
       width: max-content;
       color: #88a0a7;
+      font-size: 12px;
       .active {
         color: white;
+      }
+    }
+    .traits-bonus {
+      span {
+        font-size: 13px;
       }
     }
     svg {
