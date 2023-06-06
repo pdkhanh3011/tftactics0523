@@ -225,6 +225,7 @@ const Wrap = styled.div`
       display: ${(props) => (props.loadDone === true ? "block" : "none")};
       border-top: 1px solid #17313a;
       padding: 10px;
+      text-align: left;
       .special-item {
         margin: 10px 0 0 0;
       }
@@ -234,6 +235,7 @@ const Wrap = styled.div`
       background-color: #0d202b;
       border-top: 1px solid #17313a;
       padding: 10px;
+      text-align: left;
       img {
         border: 1px solid #17313a;
         width: 25px;

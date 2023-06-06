@@ -794,12 +794,13 @@ const TeamBuilderWrapper = styled.div`
         .team-builder-drag-line-1 {
           display: flex;
           justify-content: center;
-          align-items: center;
+          align-items: flex-start;
           text-align: center;
           height: max-content;
-          width: max-content;
+          width: 100%;
           @media only screen and (max-width: 1040px) {
             align-self: center;
+            width: max-content;
           }
           .team-builder-drag-field {
             height: min-content;
@@ -828,6 +829,7 @@ const TeamBuilderWrapper = styled.div`
           .team-builder-drag-recipe {
             flex-grow: 1;
             padding-left: 50px;
+            max-width: 250px;
             @media only screen and (max-width: 1150px) {
               padding-top: 10px;
             }
@@ -835,7 +837,6 @@ const TeamBuilderWrapper = styled.div`
               display: none;
             }
             .team-builder-drag-recipe-item {
-              max-width: 250px;
               padding: 5px;
               display: flex;
               flex-wrap: wrap;
@@ -844,8 +845,11 @@ const TeamBuilderWrapper = styled.div`
               background-color: #102531;
               border: 1px solid #17313a;
               min-height: 46px;
-              margin-bottom: 20px;
+              margin-bottom: 10px;
               border-radius: 4px;
+              &:first-child {
+                background-color: #123040;
+              }
               .team-builder-drag-recipe-item-a {
                 padding: 2.5px;
               }
