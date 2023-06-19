@@ -1,4 +1,7 @@
-Tftactic-gg clone
+## Responsive branch
+#### 19/06/2023
+
+> Responsive for Mobile & Tablet devices :heavy_check_mark:
 
 Technologies used: React, styled-component, firebase, redux, redux toolkit
 
