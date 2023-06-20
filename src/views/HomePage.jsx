@@ -23,7 +23,7 @@ function HomePage() {
             </h3>
             <p
               className="grey text-center"
-              style={{ maxWidth: "600px", margin: "20px auto" }}
+              style={{ maxWidth: "600px", margin: "20px auto", padding: "0 30px" }}
             >
               Cùng nhau leo rank, xây dựng đội hình, trang bị chuẩn, khám phá
               những đội hình Top đầu Meta và còn nhiều hơn thế nữa...

@@ -48,15 +48,16 @@ const RootLayoutWrap = styled.div`
   .my-content {
     background-color: #d47559;
     text-align: center;
-    padding: 3px 0;
+    padding: 3px 20px;
+    font-size: 1em;
     a {
       text-decoration: none;
       color: #12407c;
     }
   }
-  @media only screen and (max-width: 520px) {
+  @media only screen and (max-width: 480px) {
     .my-content {
-      font-size: 14px;
+      font-size: 0.9em;
     }
   }
 `;
