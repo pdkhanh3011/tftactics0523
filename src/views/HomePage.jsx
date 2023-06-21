@@ -492,6 +492,9 @@ const HomePageWrap = styled.div`
     display: flex;
     align-items: flex-end;
     text-align: right;
+      @media only screen and (max-width: 1024px) {
+        padding-right: 0;
+      }
   }
 
   .home-app .app-info {
@@ -758,6 +761,7 @@ const HomePageWrap = styled.div`
   .popup-cost svg {
     color: #fff !important;
   }
+
   @media only screen and (max-width: 1024px) {
     .home-app .app-image.left {
       padding: 0;
@@ -766,10 +770,12 @@ const HomePageWrap = styled.div`
       flex-direction: row;
       justify-content: flex-start;
     }
-    .home-app .app-info {
+    .home-app .app-info, .home-app .app-info.left {
       order: -1;
       justify-content: center !important;
       margin-bottom: 10px;
+      align-items: center;
+      text-align: center;
     }
     .home-app .app-image.left {
       padding: 0;
