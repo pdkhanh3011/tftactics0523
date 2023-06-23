@@ -88,12 +88,12 @@ function HomePage() {
               src={ChampionDetailImg}
               width={"55%"}
               alt="champion-crop"
-              style={{zIndex: '1', right: '20px'}}
+              style={{zIndex: '1'}}
             />
             <img
               className="image-full"
               src={ChampionListImg}
-              width={"65%"}
+              width={"70%"}
               alt="list-full"
             />
           </div>
@@ -202,7 +202,9 @@ function HomePage() {
         <div className="row">
           <div className="col-12 col-lg-6 app-info contact">
             <h2>Liên hệ</h2>
-            <p>
+            <p
+              style={{textAlign: 'left'}}
+            >
               Nếu bạn gặp phải bất kỳ sự cố hoặc lỗi nào trong quá trình trải
               nghiệm hay đơn giản là muốn trang web được cải thiện hơn, vui lòng
               cho chúng mình biết bằng cách chọn một số liên kết phía dưới. Bọn
@@ -762,20 +764,33 @@ const HomePageWrap = styled.div`
     color: #fff !important;
   }
 
+  @media only screen and (max-width: 1366px) {
+    .home-app .app-image.right {
+      align-content: center;
+    }
+  }
+
   @media only screen and (max-width: 1024px) {
     .home-app .app-image.left {
       padding: 0;
+      right: 7.5%;
       align-items: center;
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
     }
+    .home-app .app-image.right {
+      right: 7.5%;
+    }
     .home-app .app-info, .home-app .app-info.left {
       order: -1;
       justify-content: center !important;
-      margin-bottom: 10px;
+      margin-bottom: 30px;
       align-items: center;
       text-align: center;
+    }
+    .home-app .app-info.right {
+      padding-left: 0;
     }
     .home-app .app-image.left {
       padding: 0;
@@ -789,6 +804,20 @@ const HomePageWrap = styled.div`
     .col-12.home-app.features {
       justify-content: center;
     }
+    .home-app .app-image.right .image-full {
+      -webkit-transform: scale(1.05) perspective(2910px) rotateY(12deg) rotateX(3deg) rotate(-2deg);
+      transform: scale(1.05) perspective(2910px) rotateY(12deg) rotateX(3deg) rotate(-2deg);
+      box-shadow: -20px 20px 60px #0a1a23;
+    }
+    .home-app .app-image.right .image-crop {
+      right: 0;
+      left: 45%;
+      -webkit-transform: translateY(-50%) scale(1.05) perspective(2910px) rotateY(12deg) rotateX(3deg) rotate(-2deg);
+      -webkit-transform: translateY(-50%) scale(1.05) perspective(2910px) rotateY(12deg) rotateX(3deg) rotate(-2deg);
+      -ms-transform: translateY(-50%) scale(1.05) perspective(2910px) rotateY(12deg) rotateX(3deg) rotate(-2deg);
+      transform: translateY(-50%) scale(1.05) perspective(2910px) rotateY(12deg) rotateX(3deg) rotate(-2deg);
+      box-shadow: -10px 10px 30px #0a1a23;
+  }
   }
 
   @media only screen and (max-width: 992px) {
