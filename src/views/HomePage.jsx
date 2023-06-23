@@ -100,7 +100,9 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="col-12 home-app">
+      <div className="col-12 home-app"
+        style={{marginBottom: '80px'}}
+      >
         <div className="row">
           <div className="col-12 col-lg-6 app-image left">
             <img
@@ -198,7 +200,7 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="col-12 home-app no-margin-bottom">
+      <div className="col-12 home-app">
         <div className="row">
           <div className="col-12 col-lg-6 app-info contact">
             <h2>Liên hệ</h2>
@@ -378,7 +380,8 @@ const HomePageWrap = styled.div`
   }
 
   .home-app {
-    margin: 100px auto;
+    margin: 80px auto;
+    margin-bottom: 0;
     left: 0;
     right: 0;
     display: flex;
@@ -671,10 +674,6 @@ const HomePageWrap = styled.div`
     width: 400px;
   }
 
-  .no-margin-bottom {
-    margin-bottom: 0 !important;
-  }
-
   .col-12 h2,
   .col-12.col-lg-6.app-image .grey {
     user-select: none;
@@ -823,6 +822,9 @@ const HomePageWrap = styled.div`
   @media only screen and (max-width: 992px) {
     #tech-container {
       max-width: 720px;
+    }
+    .home-app {
+      margin-bottom: 30px;
     }
   }
 

@@ -124,11 +124,11 @@ const FooterWrapper = styled.div`
       align-content: center;
       flex-wrap: nowrap;
       flex-direction: row;
-      a,
-      .language-btn {
+      a, .language-btn {
         text-align: center;
         color: #88a0a7;
         margin: 0 30px;
+        margin-bottom: 10px;
         transition: all 0.3s;
         user-select: none;
         -moz-user-select: none;
@@ -168,9 +168,6 @@ const FooterWrapper = styled.div`
   @media only screen and (max-width: 1024px) {
     .container .footer-links {
       flex-wrap: wrap;
-    }
-    .container .footer-links .language-btn {
-      margin-top: 20px;
     }
   }
 
