@@ -348,7 +348,7 @@ const HomePageWrap = styled.div`
   .background-header::before {
     content: "";
     background-image: url("https://cdn.gametv.vn/news_media/image/TFT-Set-8_0x0_1678155246.png");
-    background-size: cover;
+
     background-position: center;
     height: 100%;
     width: 100%;
@@ -422,6 +422,7 @@ const HomePageWrap = styled.div`
 
   .home-app .app-info.right {
     padding-left: 80px;
+    padding-right: 0;
   }
 
   .home-app .app-image {
@@ -494,6 +495,7 @@ const HomePageWrap = styled.div`
 
   .home-app .app-info.left {
     padding-right: 100px;
+    padding-left: 0;
     display: flex;
     align-items: flex-end;
     text-align: right;
