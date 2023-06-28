@@ -23,7 +23,7 @@ function HomePage() {
             </h3>
             <p
               className="grey text-center"
-              style={{ maxWidth: "600px", margin: "20px auto" }}
+              style={{ maxWidth: "600px", margin: "20px auto", padding: "0 30px" }}
             >
               Cùng nhau leo rank, xây dựng đội hình, trang bị chuẩn, khám phá
               những đội hình Top đầu Meta và còn nhiều hơn thế nữa...
@@ -62,7 +62,7 @@ function HomePage() {
               alt="comps-crop"
             />
           </div>
-          <div className="col-12 col-lg-6 app-image right app-info">
+          <div className="col-12 col-lg-6 app-info right">
             <h2 className="text-white fw-bold">Xây dựng đội hình</h2>
             <p className="grey" style={{ maxWidth: "450px" }}>
               Xây dựng những đội hình mạnh hơn bằng cách lên kế hoạch cho đội
@@ -75,7 +75,7 @@ function HomePage() {
 
       <div className="col-12 home-app">
         <div className="row">
-          <div className="col-12 col-lg-6 app-image left app-info">
+          <div className="col-12 col-lg-6 app-info left">
             <h2 className="text-white fw-bold">Truy tìm anh hùng</h2>
             <p className="grey" style={{ maxWidth: "450px" }}>
               Tra cứu danh sách các tướng DTCL, chỉ số cơ bản, kỹ năng, Tộc/Hệ
@@ -84,42 +84,46 @@ function HomePage() {
           </div>
           <div className="col-12 col-lg-6 app-image right">
             <img
-              className="image-full"
-              src={ChampionListImg}
-              width={"65%"}
-              alt="list-full"
-            />
-            <img
               className="image-crop"
               src={ChampionDetailImg}
-              width={"65%"}
+              width={"55%"}
               alt="champion-crop"
+              style={{zIndex: '1'}}
+            />
+            <img
+              className="image-full"
+              src={ChampionListImg}
+              width={"70%"}
+              alt="list-full"
             />
           </div>
         </div>
       </div>
 
-      <div className="col-12 home-app">
+      <div className="col-12 home-app"
+        style={{marginBottom: '80px'}}
+      >
         <div className="row">
           <div className="col-12 col-lg-6 app-image left">
             <img
               className="image-full"
-              src={ItemListPng}
-              width={"65%"}
-              alt="list-full"
+              src={ItemRecipePng}
+              width={"60%"}
+              alt="comps-full"
             />
             <img
               className="image-crop"
-              src={ItemRecipePng}
-              height={"85%"}
-              alt="item-crop"
+              src={ItemListPng}
+              width={"25%"}
+              alt="comps-crop"
             />
           </div>
-          <div className="col-12 col-lg-6 app-image right app-info">
-            <h2 className="text-white fw-bold">Lựa chọn trang bị chuẩn</h2>
+          <div className="col-12 col-lg-6 app-info right">
+            <h2 className="text-white fw-bold">Xây dựng đội hình</h2>
             <p className="grey" style={{ maxWidth: "450px" }}>
-              Tìm những món đồ, trang bị chuẩn dành cho những vị tướng DTCL. Tra
-              cứu cách kết hợp và các thành phần của chúng.
+              Xây dựng những đội hình mạnh hơn bằng cách lên kế hoạch cho đội
+              hình của bạn hoặc chọn một trong những đội hình vượt trội trong
+              Meta hiện tại.
             </p>
           </div>
         </div>
@@ -196,11 +200,13 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="col-12 home-app no-margin-bottom">
+      <div className="col-12 home-app">
         <div className="row">
           <div className="col-12 col-lg-6 app-info contact">
             <h2>Liên hệ</h2>
-            <p>
+            <p
+              style={{textAlign: 'left'}}
+            >
               Nếu bạn gặp phải bất kỳ sự cố hoặc lỗi nào trong quá trình trải
               nghiệm hay đơn giản là muốn trang web được cải thiện hơn, vui lòng
               cho chúng mình biết bằng cách chọn một số liên kết phía dưới. Bọn
@@ -342,7 +348,7 @@ const HomePageWrap = styled.div`
   .background-header::before {
     content: "";
     background-image: url("https://cdn.gametv.vn/news_media/image/TFT-Set-8_0x0_1678155246.png");
-    background-size: cover;
+
     background-position: center;
     height: 100%;
     width: 100%;
@@ -374,7 +380,8 @@ const HomePageWrap = styled.div`
   }
 
   .home-app {
-    margin: 100px auto;
+    margin: 80px auto;
+    margin-bottom: 0;
     left: 0;
     right: 0;
     display: flex;
@@ -390,6 +397,12 @@ const HomePageWrap = styled.div`
     margin: 0 0 20px;
   }
 
+  .home .home-app .app-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
   .home-app .app-info p {
     color: #88a0a7;
     line-height: 1.8em;
@@ -400,28 +413,28 @@ const HomePageWrap = styled.div`
     filter: contrast(1.04);
   }
 
-  .home-app .app-image.right .image-full {
-    -webkit-transform: scale(1.05) perspective(2910px) rotateY(-12deg)
-      rotateX(-3deg) rotate(2deg);
-    transform: scale(1.05) perspective(2910px) rotateY(-12deg) rotateX(-3deg)
-      rotate(2deg);
-    box-shadow: 20px 20px 60px #0a1a23;
+  .home-app .app-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
   }
 
-  .home-app .app-image .image-crop,
-  .app-image .image-full {
-    box-shadow: 0 13px 27px -5px #102531, 0 8px 16px -8px #102531,
-      0 -6px 16px -6px #102531;
+  .home-app .app-info.right {
+    padding-left: 80px;
+    padding-right: 0;
+  }
+
+  .home-app .app-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .home-app .app-image .image-crop, .home-app .app-image .image-full {
+    box-shadow: 0 13px 27px -5px #102531, 0 8px 16px -8px #102531, 0 -6px 16px -6px #102531;
     border: 1px solid #17313a;
     border-radius: 3px;
-  }
-  .home-app .app-image.right .image-crop {
-    left: 0;
-    -webkit-transform: translateY(-50%) scale(1.05) perspective(2910px)
-      rotateY(-12deg) rotateX(-3deg) rotate(2deg);
-    transform: translateY(-50%) scale(1.05) perspective(2910px) rotateY(-12deg)
-      rotateX(-3deg) rotate(2deg);
-    box-shadow: 10px 10px 30px #0a1a23;
   }
 
   .home-app .app-image .image-crop {
@@ -430,38 +443,43 @@ const HomePageWrap = styled.div`
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
   }
-  .home-app .app-image .image-crop,
-  .app-image .image-full {
-    box-shadow: 0 13px 27px -5px #102531, 0 8px 16px -8px #102531,
-      0 -6px 16px -6px #102531;
+  .home-app .app-image .image-crop, .home-app .app-image .image-full {
+    box-shadow: 0 13px 27px -5px #102531, 0 8px 16px -8px #102531, 0 -6px 16px -6px #102531;
     border: 1px solid #17313a;
     border-radius: 3px;
   }
 
-  .home-app .app-image.left .image-full {
-    -webkit-transform: scale(1.05) perspective(2910px) rotateY(12deg)
-      rotateX(3deg) rotate(-2deg);
-    transform: scale(1.05) perspective(2910px) rotateY(12deg) rotateX(3deg)
-      rotate(-2deg);
-    box-shadow: -20px 20px 60px #0a1a23;
+  .home-app .app-image.left {
+    justify-content: flex-start;
   }
 
-  .home-app .app-image .image-crop,
-  .home-app .app-image .image-full {
-    box-shadow: 0 13px 27px -5px #102531, 0 8px 16px -8px #102531,
-      0 -6px 16px -6px #102531;
+  .home-app .app-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .home-app .app-info.right {
+    padding-left: 80px;
+  }
+
+  .home-app .app-image.left .image-full {
+    -webkit-transform: scale(1.05) perspective(2910px) rotateY(12deg) rotateX(3deg) rotate(-2deg);
+    transform: scale(1.05) perspective(2910px) rotateY(12deg) rotateX(3deg) rotate(-2deg);
+    box-shadow: -20px 20px 60px #0a1a23;
+  }
+  .home-app .app-image .image-crop, .home-app .app-image .image-full {
+    box-shadow: 0 13px 27px -5px #102531, 0 8px 16px -8px #102531, 0 -6px 16px -6px #102531;
     border: 1px solid #17313a;
     border-radius: 3px;
   }
 
   .home-app .app-image.left .image-crop {
     right: 0;
-    -webkit-transform: translateY(-50%) scale(1.05) perspective(2910px)
-      rotateY(12deg) rotateX(3deg) rotate(-2deg);
-    transform: translateY(-50%) scale(1.05) perspective(2910px) rotateY(12deg)
-      rotateX(3deg) rotate(-2deg);
+    -webkit-transform: translateY(-50%) scale(1.05) perspective(2910px) rotateY(12deg) rotateX(3deg) rotate(-2deg);
+    transform: translateY(-50%) scale(1.05) perspective(2910px) rotateY(12deg) rotateX(3deg) rotate(-2deg);
     box-shadow: -10px 10px 30px #0a1a23;
-  }
+}
 
   .home-app .app-image .image-crop {
     position: absolute;
@@ -469,10 +487,68 @@ const HomePageWrap = styled.div`
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
   }
-  .home-app .app-image .image-crop,
-  .home-app .app-image .image-full {
-    box-shadow: 0 13px 27px -5px #102531, 0 8px 16px -8px #102531,
-      0 -6px 16px -6px #102531;
+  .home-app .app-image .image-crop, .home-app .app-image .image-full {
+    box-shadow: 0 13px 27px -5px #102531, 0 8px 16px -8px #102531, 0 -6px 16px -6px #102531;
+    border: 1px solid #17313a;
+    border-radius: 3px;
+  }
+
+  .home-app .app-info.left {
+    padding-right: 100px;
+    padding-left: 0;
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+      @media only screen and (max-width: 1024px) {
+        padding-right: 0;
+      }
+  }
+
+  .home-app .app-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .home-app .app-image.right {
+    display: flex;
+    align-content: flex-start;
+    justify-content: flex-end;
+  }
+
+  .home-app .app-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .home-app .app-image.right .image-full {
+    -webkit-transform: scale(1.05) perspective(2910px) rotateY(-12deg) rotateX(-3deg) rotate(2deg);
+    transform: scale(1.05) perspective(2910px) rotateY(-12deg) rotateX(-3deg) rotate(2deg);
+    box-shadow: 20px 20px 60px #0a1a23;
+  }
+
+  .home-app .app-image .image-crop, .home .home-app .app-image .image-full {
+    box-shadow: 0 13px 27px -5px #102531, 0 8px 16px -8px #102531, 0 -6px 16px -6px #102531;
+    border: 1px solid #17313a;
+    border-radius: 3px;
+  }
+
+  .home-app .app-image.right .image-crop {
+    left: 0;
+    -webkit-transform: translateX(-10%) translateY(-50%) scale(1.05) perspective(2910px) rotateY(-12deg) rotateX(-3deg) rotate(2deg);
+    transform: translateX(-10%) translateY(-50%) scale(1.05) perspective(2910px) rotateY(-12deg) rotateX(-3deg) rotate(2deg);
+    box-shadow: 10px 10px 30px #0a1a23;
+  }
+  .home-app .app-image .image-crop {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  .home-app .app-image .image-crop, .home .home-app .app-image .image-full {
+    box-shadow: 0 13px 27px -5px #102531, 0 8px 16px -8px #102531, 0 -6px 16px -6px #102531;
     border: 1px solid #17313a;
     border-radius: 3px;
   }
@@ -500,27 +576,6 @@ const HomePageWrap = styled.div`
     flex-wrap: wrap;
     margin-right: 350px;
   }
-
-  .btn-github,
-  .btn-fb,
-  .btn-ig,
-  .btn-yt {
-    color: #fff !important;
-    background-color: #123040 !important;
-    padding: 6px 10px !important;
-    border: none !important;
-    margin: 0 5px;
-    font-size: 14px !important;
-  }
-
-  .btn-github:hover,
-  .btn-fb:hover,
-  .btn-ig:hover,
-  .btn-yt:hover {
-    color: #123040 !important;
-    background-color: #f0f0f0 !important;
-  }
-
   .col-12.home-app.features .row {
     max-width: 1200px !important;
     text-align: center;
@@ -621,10 +676,6 @@ const HomePageWrap = styled.div`
     width: 400px;
   }
 
-  .no-margin-bottom {
-    margin-bottom: 0 !important;
-  }
-
   .col-12 h2,
   .col-12.col-lg-6.app-image .grey {
     user-select: none;
@@ -713,18 +764,34 @@ const HomePageWrap = styled.div`
   .popup-cost svg {
     color: #fff !important;
   }
+
+  @media only screen and (max-width: 1366px) {
+    .home-app .app-image.right {
+      align-content: center;
+    }
+  }
+
   @media only screen and (max-width: 1024px) {
     .home-app .app-image.left {
       padding: 0;
+      right: 7.5%;
       align-items: center;
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
     }
-    .home-app .app-info {
+    .home-app .app-image.right {
+      right: 7.5%;
+    }
+    .home-app .app-info, .home-app .app-info.left {
       order: -1;
       justify-content: center !important;
-      margin-bottom: 10px;
+      margin-bottom: 30px;
+      align-items: center;
+      text-align: center;
+    }
+    .home-app .app-info.right {
+      padding-left: 0;
     }
     .home-app .app-image.left {
       padding: 0;
@@ -737,6 +804,29 @@ const HomePageWrap = styled.div`
     }
     .col-12.home-app.features {
       justify-content: center;
+    }
+    .home-app .app-image.right .image-full {
+      -webkit-transform: scale(1.05) perspective(2910px) rotateY(12deg) rotateX(3deg) rotate(-2deg);
+      transform: scale(1.05) perspective(2910px) rotateY(12deg) rotateX(3deg) rotate(-2deg);
+      box-shadow: -20px 20px 60px #0a1a23;
+    }
+    .home-app .app-image.right .image-crop {
+      right: 0;
+      left: 45%;
+      -webkit-transform: translateY(-50%) scale(1.05) perspective(2910px) rotateY(12deg) rotateX(3deg) rotate(-2deg);
+      -webkit-transform: translateY(-50%) scale(1.05) perspective(2910px) rotateY(12deg) rotateX(3deg) rotate(-2deg);
+      -ms-transform: translateY(-50%) scale(1.05) perspective(2910px) rotateY(12deg) rotateX(3deg) rotate(-2deg);
+      transform: translateY(-50%) scale(1.05) perspective(2910px) rotateY(12deg) rotateX(3deg) rotate(-2deg);
+      box-shadow: -10px 10px 30px #0a1a23;
+  }
+  }
+
+  @media only screen and (max-width: 992px) {
+    #tech-container {
+      max-width: 720px;
+    }
+    .home-app {
+      margin-bottom: 30px;
     }
   }
 
@@ -754,13 +844,6 @@ const HomePageWrap = styled.div`
       order: -1;
       justify-content: center !important;
       margin-bottom: 10px;
-    }
-    .home-app .app-image.right {
-      padding: 0;
-      align-items: center;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
     }
     #tech-container .home-app .row {
       display: flex;

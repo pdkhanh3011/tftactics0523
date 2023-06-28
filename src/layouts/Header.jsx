@@ -115,10 +115,16 @@ const HeaderWrap = styled.div`
       display: none;
     }
   }
-  @media (max-width: 1024px) {
+  @media only screen and (max-width: 1280px) {
+    .wrapper {
+      padding: 0 30px;
+    }
+  }
+  @media only screen and (max-width: 1024px) {
     padding-left: 45px;
     padding-right: 45px;
     .wrapper {
+      padding: 0;
       .search-bar {
         margin: 0 30px 0 15px;
       }
